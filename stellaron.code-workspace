@@ -1,0 +1,21 @@
+{
+  "folders": [
+    {
+      "path": "apps/db",
+      "name": "db"
+    },
+    {
+      "path": "apps/meta",
+      "name": "meta"
+    },
+    {
+      "path": ".",
+      "name": "monorepo"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "apps": true
+    }
+  }
+}
