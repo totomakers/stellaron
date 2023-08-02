@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build": "nx run-many -t build",
+    "lint": "nx run-many -t lint",
+    "prettier": "nx run-many -t prettier"
+  },
+  "name": "stellaron",
+  "devDependencies": {
+    "nx": "^16.6.0"
+  }
+}

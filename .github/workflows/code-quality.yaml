@@ -1,0 +1,25 @@
+name: 🚨 Code quality
+
+on:
+  workflow_call:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: ⚡️ Init
+        uses: ./.github/init
+      - name: 🚨 Linting (ESLint)
+        run: pnpm lint
+
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: ⚡️ Init
+        uses: ./.github/init
+      - name: 🚨 prettier (Prettier)
+        run: pnpm prettier
