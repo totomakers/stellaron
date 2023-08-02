@@ -1,5 +1,10 @@
 name: 🐳 CI
 
+# Cancel in-progress jobs
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
