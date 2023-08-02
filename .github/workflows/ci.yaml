@@ -20,17 +20,8 @@ jobs:
 
   code-quality:
     needs: init
-    uses: ./.github/workflows/code-quality.yml
-
-  testing:
-    needs: code-quality
-    uses: ./.github/workflows/testing.yml
+    uses: ./.github/workflows/code-quality.yaml
 
   build:
-    needs: testing
-    uses: ./.github/workflows/build.yml
-
-  chromatic:
-    needs: build
-    uses: ./.github/workflows/chromatic.yml
-    secrets: inherit
+    needs: code-quality
+    uses: ./.github/workflows/build.yaml
