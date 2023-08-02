@@ -1,8 +1,8 @@
 {
-  "name": "nest-typescript-starter",
+  "name": "@stellaron/db",
   "private": true,
   "version": "1.0.0",
-  "description": "Nest TypeScript starter repository",
+  "description": "Honkai StarRails GraphQL API",
   "license": "MIT",
   "scripts": {
     "build": "nest build",
