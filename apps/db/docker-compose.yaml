@@ -1,0 +1,12 @@
+name: db
+
+services:
+  db:
+    image: postgres:15-alpine3.18
+    restart: always
+    environment:
+      POSTGRES_DB: stellaron
+      POSTGRES_USER: stellaron
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432

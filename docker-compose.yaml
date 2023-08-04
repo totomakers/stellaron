@@ -1,0 +1,4 @@
+name: stellaron
+
+include:
+  - ./apps/db/docker-compose.yaml
