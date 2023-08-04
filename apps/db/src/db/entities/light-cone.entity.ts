@@ -7,10 +7,10 @@ import {
   Property,
 } from '@mikro-orm/core';
 
-import { Path } from '../enums/path';
-import { CombatType } from '../enums/combat-type';
-import { LightConeStat } from './light-cone-stat';
-import { LightConeRarity } from '../enums/light-cone-rarity';
+import { Path } from '../enums/path.enum';
+import { CombatType } from '../enums/combat-type.enum';
+import { LightConeStat } from './light-cone-stat.entity';
+import { LightConeRarity } from '../enums/light-cone-rarity.enum';
 
 @Entity()
 export class LightCone {

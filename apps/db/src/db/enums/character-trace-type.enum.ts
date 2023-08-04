@@ -1,4 +1,4 @@
-import { CharacterAbilityType } from './character-ability-type';
+import { CharacterAbilityType } from './character-ability-type.enum';
 
 export enum CharacterTraceType__Bonus {
   BonusStat = 'bonus-stat',

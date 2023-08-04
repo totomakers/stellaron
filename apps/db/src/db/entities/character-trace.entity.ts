@@ -1,7 +1,7 @@
 import { Entity, Enum, ManyToOne, Property, Ref } from '@mikro-orm/core';
-import { PrimaryKeyUUID } from '../decorators/PrimaryKeyUUID';
-import { Character } from './character';
-import { CharacterTraceType } from '../enums/character-trace-type';
+import { PrimaryKeyUUID } from '../decorators/primary-key-uuid.decorator';
+import { Character } from './character.entity';
+import { CharacterTraceType } from '../enums/character-trace-type.enum';
 
 @Entity()
 export class CharacterTrace {

@@ -6,12 +6,12 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { CharacterAbility } from './character-ability';
-import { CharacterStat } from './character-stat';
-import { Path } from '../enums/path';
-import { CombatType } from '../enums/combat-type';
-import { CharacterRarity } from '../enums/character-rarity';
-import { CharacterTrace } from './character-trace';
+import { CharacterAbility } from './character-ability.entity';
+import { CharacterStat } from './character-stat.entity';
+import { Path } from '../enums/path.enum';
+import { CombatType } from '../enums/combat-type.enum';
+import { CharacterRarity } from '../enums/character-rarity.enum';
+import { CharacterTrace } from './character-trace.entity';
 
 @Entity()
 export class Character {

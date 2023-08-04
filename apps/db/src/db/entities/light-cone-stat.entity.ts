@@ -1,7 +1,7 @@
 import { Entity, Enum, ManyToOne, Property, Ref } from '@mikro-orm/core';
-import { PrimaryKeyUUID } from '../decorators/PrimaryKeyUUID';
-import { CharacterStatType } from '../enums/character-stat-type';
-import { LightCone } from './light-cone';
+import { PrimaryKeyUUID } from '../decorators/primary-key-uuid.decorator';
+import { CharacterStatType } from '../enums/character-stat-type.enum';
+import { LightCone } from './light-cone.entity';
 
 @Entity()
 export class LightConeStat {
