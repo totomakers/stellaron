@@ -22,6 +22,9 @@ export class LightCone {
   @Property()
   name!: string;
 
+  @Property({ unique: true })
+  slug!: string;
+
   @Enum(() => Path)
   path!: Path;
 

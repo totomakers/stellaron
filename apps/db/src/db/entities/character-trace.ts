@@ -1,20 +1,18 @@
 import { Entity, Enum, ManyToOne, Property, Ref } from '@mikro-orm/core';
 import { PrimaryKeyUUID } from '../decorators/PrimaryKeyUUID';
 import { Character } from './character';
-import { CharacterStatType } from '../enums/character-stat-type';
+import { CharacterTraceType } from '../enums/character-trace-type';
 
 @Entity()
-export class CharacterStat {
+export class CharacterTrace {
   @PrimaryKeyUUID()
   id!: string;
 
-  @Enum(() => CharacterStatType)
-  type!: CharacterStatType;
+  @Property({ nullable: true })
+  name!: string | null;
 
-  @Property({
-    columnType: 'float',
-  })
-  value!: number;
+  @Enum(() => CharacterTraceType)
+  type!: CharacterTraceType;
 
   @ManyToOne(() => Character, { ref: true })
   character!: Ref<Character>;
