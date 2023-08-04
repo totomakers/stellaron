@@ -31,16 +31,18 @@ jobs:
     needs: code-quality
     uses: ./.github/workflows/build.yaml
 
-  deploy-prod:
+  deployment-prod:
     needs: build
     if: github.ref == 'refs/heads/main'
-    uses: ./.github/workflows/deploy.yaml
+    uses: ./.github/workflows/deployment.yaml
+    secrets: inherit
     with:
-      environnement: prod
+      domain: prod
 
-  deploy-dev:
+  deployment-dev:
     needs: build
     if: github.ref == 'refs/heads/dev'
-    uses: ./.github/workflows/deploy.yaml
+    uses: ./.github/workflows/deployment.yaml
+    secrets: inherit
     with:
-      environnement: dev
+      domain: dev
