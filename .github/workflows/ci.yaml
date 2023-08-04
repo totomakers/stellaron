@@ -8,9 +8,9 @@ concurrency:
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [main, develop]
+    branches: [main, dev]
   pull_request:
-    branches: [main, develop]
+    branches: [main, dev]
 
   workflow_dispatch:
 
@@ -30,3 +30,17 @@ jobs:
   build:
     needs: code-quality
     uses: ./.github/workflows/build.yaml
+
+  deploy-prod:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/deploy.yaml
+    with:
+      environnement: prod
+
+  deploy-dev:
+    needs: build
+    if: github.ref == 'refs/heads/dev'
+    uses: ./.github/workflows/deploy.yaml
+    with:
+      environnement: dev

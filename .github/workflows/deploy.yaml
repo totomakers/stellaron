@@ -1,0 +1,22 @@
+name: ⚡ Deploy
+
+on:
+  workflow_call:
+    inputs:
+      environnement:
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup flyctl
+        uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: ⚡ Deploy
+        run: flyctl deploy --remote-only --app ${{ inputs.environnement }}-db-api --build-target db
+        env:
+          FLY_ACCESS_TOKEN: ${{ secrets.FLY_ACCESS_TOKEN }}
