@@ -1,4 +1,0 @@
-primary_region = "cdg"
-
-[build]
-  dockerfile = "Dockerfile"
