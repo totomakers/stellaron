@@ -7,6 +7,7 @@ export enum CombatType {
   Wind = 'wind',
   Quantum = 'quantum',
   Imaginary = 'imaginary',
+  Physical = 'physical',
 }
 
 registerEnumType(CombatType, {

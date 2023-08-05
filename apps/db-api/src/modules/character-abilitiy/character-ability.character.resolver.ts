@@ -6,6 +6,6 @@ import { CharacterAbility } from '../../db/entities/character-ability.entity';
 export class CharacterAbilityCharacterResolver {
   @ResolveField(() => [CharacterAbility])
   abilities(@Parent() parent: Character) {
-    return parent.abilities.getItems();
+    return parent.abilities.loadItems();
   }
 }

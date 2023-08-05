@@ -2,6 +2,7 @@ import {
   Collection,
   Entity,
   Enum,
+  EnumType,
   OneToMany,
   PrimaryKey,
   Property,
@@ -16,9 +17,7 @@ import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
 @Entity()
 @ObjectType()
 export class LightCone {
-  @PrimaryKey({
-    defaultRaw: 'gen_random_uuid()',
-  })
+  @PrimaryKey()
   @Field(() => ID)
   id!: string;
 
@@ -26,19 +25,15 @@ export class LightCone {
   @Field()
   name!: string;
 
-  @Property({ unique: true })
-  @Field()
-  slug!: string;
-
-  @Enum(() => Path)
+  @Enum({ type: EnumType, items: () => Path })
   @Field(() => Path)
   path!: Path;
 
-  @Enum(() => CombatType)
+  @Enum({ type: EnumType, items: () => CombatType })
   @Field(() => CombatType)
   combatType!: CombatType;
 
-  @Property({ columnType: 'smallint' })
+  @Property({ type: 'int' })
   @Field(() => Int)
   rarity!: LightConeRarity;
 

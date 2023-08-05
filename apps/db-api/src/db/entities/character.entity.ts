@@ -2,6 +2,7 @@ import {
   Collection,
   Entity,
   Enum,
+  EnumType,
   OneToMany,
   PrimaryKey,
   Property,
@@ -17,9 +18,7 @@ import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
 @Entity()
 @ObjectType()
 export class Character {
-  @PrimaryKey({
-    defaultRaw: 'gen_random_uuid()',
-  })
+  @PrimaryKey()
   @Field(() => ID)
   id!: string;
 
@@ -27,19 +26,15 @@ export class Character {
   @Field()
   name!: string;
 
-  @Property({ unique: true })
-  @Field()
-  slug!: string;
-
-  @Enum(() => CombatType)
+  @Enum({ type: EnumType, items: () => CombatType })
   @Field(() => CombatType)
   combatType!: CombatType;
 
-  @Enum(() => Path)
+  @Enum({ type: EnumType, items: () => Path })
   @Field(() => Path)
   path!: Path;
 
-  @Property({ columnType: 'smallint' })
+  @Property({ type: 'int' })
   @Field(() => Int)
   rarity!: CharacterRarity;
 

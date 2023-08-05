@@ -1,6 +1,7 @@
 import {
   Entity,
   Enum,
+  EnumType,
   ManyToOne,
   Property,
   Ref,
@@ -21,12 +22,12 @@ export class CharacterStat {
   @Field(() => ID)
   id!: string;
 
-  @Enum(() => CharacterStatType)
+  @Enum({ type: EnumType, items: () => CharacterStatType })
   @Field(() => CharacterStatType)
   type!: CharacterStatType;
 
   @Property({
-    columnType: 'float',
+    type: 'float',
   })
   @Field(() => Float)
   value!: number;

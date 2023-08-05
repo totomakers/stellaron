@@ -6,6 +6,8 @@ async function bootstrap() {
     snapshot: true,
   });
 
+  app.enableShutdownHooks();
+
   await app.listen(3000);
 }
 bootstrap();

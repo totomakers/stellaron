@@ -9,7 +9,6 @@ type Character {
   name: String!
   path: Path!
   rarity: Int!
-  slug: String!
   stats: [CharacterStat!]!
   traces: [CharacterTrace!]!
 }
@@ -96,6 +95,7 @@ enum CombatType {
   Ice
   Imaginary
   Lightning
+  Physical
   Quantum
   Wind
 }
@@ -106,7 +106,6 @@ type LightCone {
   name: String!
   path: Path!
   rarity: Int!
-  slug: String!
   stats: [LightConeStat!]!
 }
 

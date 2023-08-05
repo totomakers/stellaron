@@ -7,7 +7,7 @@ import { CharactersFiltersInput } from './inputs/characters-filters.input';
 export class CharacterService {
   constructor(private readonly em: EntityManager) {}
 
-  getAll(filters?: CharactersFiltersInput) {
+  async getAll(filters?: CharactersFiltersInput) {
     const qb = this.em.createQueryBuilder(Character, 'character');
     const knex = qb.getKnex();
 
@@ -27,6 +27,8 @@ export class CharacterService {
       knex.whereRaw('LEVENSHTEIN(name, ?) <= 4', [filters.query]);
     }
 
-    return this.em.getConnection().execute(knex);
+    const results = await this.em.getConnection().execute(knex);
+
+    return results.map((character) => this.em.map(Character, character));
   }
 }

@@ -1,4 +1,4 @@
-import { Entity, Enum, ManyToOne, Ref } from '@mikro-orm/core';
+import { Entity, Enum, EnumType, ManyToOne, Ref } from '@mikro-orm/core';
 import { PrimaryKeyUUID } from '../decorators/primary-key-uuid.decorator';
 import { Character } from './character.entity';
 import { CharacterAbilityType } from '../enums/character-ability-type.enum';
@@ -11,7 +11,7 @@ export class CharacterAbility {
   @Field(() => ID)
   id!: string;
 
-  @Enum(() => CharacterAbilityType)
+  @Enum({ type: EnumType, items: () => CharacterAbilityType })
   @Field(() => CharacterAbilityType)
   type!: CharacterAbilityType;
 
