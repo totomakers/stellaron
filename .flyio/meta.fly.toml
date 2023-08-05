@@ -4,6 +4,6 @@ primary_region = "cdg"
   dockerfile = "../Dockerfile"
   build-target = "meta"
 
-[[services]]
+[http_service]
   internal_port = 8043
   force_https = true

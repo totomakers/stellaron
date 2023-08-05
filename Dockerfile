@@ -23,10 +23,11 @@ COPY --from=build /monorepo/apps/db-api/dist /monorepo/apps/db-api/dist
 COPY --from=prod-deps /monorepo/node_modules /monorepo/node_modules
 COPY --from=prod-deps /monorepo/apps/db-api/node_modules /monorepo/apps/db-api/node_modules
 
+WORKDIR /monorepo/apps/db-api
+EXPOSE 3000
+CMD [ "pnpm", "start:prod" ]
+
 # meta
 FROM pierrezemb/gostatic as meta
 COPY --from=build /monorepo/apps/meta/dist /srv/http
 
-WORKDIR /monorepo/apps/db-api
-EXPOSE 3000
-CMD [ "pnpm", "start:prod" ]
