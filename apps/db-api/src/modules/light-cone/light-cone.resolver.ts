@@ -1,16 +1,17 @@
-import { Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { Args, Query, Resolver } from '@nestjs/graphql';
 import { LightCone } from '../../db/entities/light-cone.entity';
-import { LightConeStat } from '../../db/entities/light-cone-stat.entity';
+import { LightConesFiltersInput } from './inputs/light-cones-filters.input';
+import { LightConeService } from './light-cone.service';
 
 @Resolver(() => LightCone)
 export class LightConeResolver {
-  @Query(() => [LightCone])
-  lightCones() {
-    return [];
-  }
+  constructor(private readonly lightConeService: LightConeService) {}
 
-  @ResolveField(() => LightConeStat)
-  stats() {
-    return [];
+  @Query(() => [LightCone])
+  lightCones(
+    @Args('filters', { type: () => LightConesFiltersInput, nullable: true })
+    filters?: LightConesFiltersInput,
+  ) {
+    return this.lightConeService.getAll(filters);
   }
 }

@@ -59,6 +59,11 @@ enum CharacterStatType {
   WindResBoost
 }
 
+input CharacterStatsFiltersInput {
+  characterIds: [ID!]
+  type: [CharacterStatType!]
+}
+
 type CharacterTrace {
   id: ID!
   type: CharacterTraceType!
@@ -71,6 +76,19 @@ enum CharacterTraceType {
   Skill
   Talent
   Technique
+}
+
+input CharacterTracesFiltersInput {
+  characterIds: [ID!]
+  query: String
+  type: [CharacterTraceType!]
+}
+
+input CharactersFiltersInput {
+  combatTypes: [CombatType!]
+  paths: [Path!]
+  query: String
+  rarities: [Int!]
 }
 
 enum CombatType {
@@ -89,13 +107,25 @@ type LightCone {
   path: Path!
   rarity: Int!
   slug: String!
-  stats: LightConeStat!
+  stats: [LightConeStat!]!
 }
 
 type LightConeStat {
   id: ID!
   type: CharacterStatType!
   value: Float!
+}
+
+input LightConeStatsFiltersInput {
+  lightConeIds: [ID!]
+  type: [CharacterStatType!]
+}
+
+input LightConesFiltersInput {
+  combatTypes: [CombatType!]
+  paths: [Path!]
+  query: String
+  rarities: [Int!]
 }
 
 enum Path {
@@ -109,6 +139,9 @@ enum Path {
 }
 
 type Query {
-  characters: [Character!]!
-  lightCones: [LightCone!]!
+  characterStats(filters: CharacterStatsFiltersInput): [CharacterStat!]!
+  characterTraces(filters: CharacterTracesFiltersInput): [CharacterTrace!]!
+  characters(filters: CharactersFiltersInput): [Character!]!
+  lightConeStats(filters: LightConeStatsFiltersInput): [LightConeStat!]!
+  lightCones(filters: LightConesFiltersInput): [LightCone!]!
 }

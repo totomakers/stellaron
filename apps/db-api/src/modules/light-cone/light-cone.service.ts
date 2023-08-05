@@ -1,26 +1,26 @@
 import { Injectable } from '@nestjs/common';
-import { Character } from '../../db/entities/character.entity';
+import { LightConesFiltersInput } from './inputs/light-cones-filters.input';
+import { LightCone } from '../../db/entities/light-cone.entity';
 import { EntityManager } from '@mikro-orm/postgresql';
-import { CharactersFiltersInput } from './inputs/characters-filters.input';
 
 @Injectable()
-export class CharacterService {
+export class LightConeService {
   constructor(private readonly em: EntityManager) {}
 
-  getAll(filters?: CharactersFiltersInput) {
-    const qb = this.em.createQueryBuilder(Character, 'character');
+  getAll(filters?: LightConesFiltersInput) {
+    const qb = this.em.createQueryBuilder(LightCone, 'lightCone');
     const knex = qb.getKnex();
 
     if (filters?.combatTypes && filters.combatTypes.length > 0) {
       knex.whereIn('combat_type', filters?.combatTypes);
     }
 
-    if (filters?.paths && filters.paths.length > 0) {
-      knex.whereIn('path', filters?.paths);
+    if (filters?.rarities && filters.rarities.length > 0) {
+      knex.whereIn('rarity', filters?.rarities);
     }
 
-    if (filters?.rarities && filters.rarities.length > 0) {
-      knex.whereIn('rarity', filters.rarities);
+    if (filters?.paths && filters.paths.length > 0) {
+      knex.whereIn('path', filters?.paths);
     }
 
     if (filters?.query) {
