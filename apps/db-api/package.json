@@ -1,5 +1,5 @@
 {
-  "name": "@stellaron/db",
+  "name": "@stellaron/db-api",
   "private": true,
   "version": "1.0.0",
   "description": "Honkai StarRails GraphQL API",
