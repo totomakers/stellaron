@@ -1,0 +1,36 @@
+name: ⚡ Deployment
+
+on:
+  workflow_call:
+    inputs:
+      domain:
+        required: true
+        type: string
+
+env:
+  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+jobs:
+  deploy-db-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup flyctl
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Deployment
+        run: flyctl deploy --config ./.flyio/db-api.fly.toml --app ${{ inputs.domain }}-db-api --remote-only
+
+  deploy-meta:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup flyctl
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Deployment
+        run: flyctl deploy --config ./.flyio/meta.fly.toml --app ${{ inputs.domain }}-meta --remote-only

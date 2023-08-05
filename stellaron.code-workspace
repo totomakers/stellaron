@@ -1,8 +1,8 @@
 {
   "folders": [
     {
-      "path": "apps/db",
-      "name": "db"
+      "path": "apps/db-api",
+      "name": "db-api"
     },
     {
       "path": "apps/meta",
