@@ -1,3 +1,5 @@
+import { registerEnumType } from '@nestjs/graphql';
+
 export enum Path {
   Destruction = 'destruction',
   Hunt = 'hunt',
@@ -7,3 +9,7 @@ export enum Path {
   Preservation = 'preservation',
   Abundance = 'abundance',
 }
+
+registerEnumType(Path, {
+  name: 'Path',
+});

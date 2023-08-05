@@ -1,3 +1,5 @@
+import { registerEnumType } from '@nestjs/graphql';
+
 export enum CombatType {
   Fire = 'fire',
   Ice = 'ice',
@@ -6,3 +8,7 @@ export enum CombatType {
   Quantum = 'quantum',
   Imaginary = 'imaginary',
 }
+
+registerEnumType(CombatType, {
+  name: 'CombatType',
+});
