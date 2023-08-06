@@ -21,21 +21,17 @@ RUN pnpm run build
 # Apps =========
 # ==============
 
-## stellaron-api
-FROM base as stellaron-api
-COPY --from=build /monorepo/apps/stellaron-api/dist /monorepo/apps/stellaron-api/dist
+## api
+FROM base as api
+COPY --from=build /monorepo/apps/api/dist /monorepo/apps/api/dist
 COPY --from=prod-deps /monorepo/node_modules /monorepo/node_modules
-COPY --from=prod-deps /monorepo/apps/stellaron-api/node_modules /monorepo/apps/stellaron-api/node_modules
+COPY --from=prod-deps /monorepo/apps/api/node_modules /monorepo/apps/api/node_modules
 
-WORKDIR /monorepo/apps/stellaron-api
+WORKDIR /monorepo/apps/api
 EXPOSE 3000
 CMD [ "pnpm", "start:prod" ]
 
-# meta
-FROM pierrezemb/gostatic as meta
-COPY --from=build /monorepo/apps/meta/dist /srv/http
-
-# stellaron
-FROM pierrezemb/gostatic as stellaron
-COPY --from=build /monorepo/apps/stellaron/dist /srv/http
+# frontend
+FROM pierrezemb/gostatic as frontend
+COPY --from=build /monorepo/apps/frontend/dist /srv/http
 

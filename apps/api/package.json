@@ -1,8 +1,8 @@
 {
-  "name": "@stellaron/stellaron-api",
+  "name": "@stellaron/api",
   "private": true,
   "version": "1.0.0",
-  "description": "Honkai Star Rail GraphQL API",
+  "description": "Stellaron GraphQL API",
   "license": "MIT",
   "scripts": {
     "build": "nest build",
