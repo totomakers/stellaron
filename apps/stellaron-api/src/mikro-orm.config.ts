@@ -7,7 +7,9 @@ const config = defineConfig({
   entities: ['./dist/db/entities'],
   entitiesTs: ['./src/db/entities'],
   driverOptions: {
-    sslmode: 'require',
+    connection: {
+      ssl: { sslmode: 'require' },
+    },
   },
 });
 
