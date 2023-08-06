@@ -33,7 +33,6 @@ export class CharacterStat {
   value!: number;
 
   // Relations
-
-  @ManyToOne(() => Character, { ref: true })
+  @ManyToOne(() => Character, { ref: true, onDelete: 'cascade' })
   character!: Ref<Character>;
 }

@@ -33,7 +33,6 @@ export class LightConeStat {
   value!: number;
 
   // Relations
-
-  @ManyToOne(() => LightCone, { ref: true })
+  @ManyToOne(() => LightCone, { ref: true, onDelete: 'cascade' })
   lightCone!: Ref<LightCone>;
 }

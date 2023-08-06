@@ -11,10 +11,6 @@ export class LightConeService {
     const qb = this.em.createQueryBuilder(LightCone, 'lightCone');
     const knex = qb.getKnex();
 
-    if (filters?.combatTypes && filters.combatTypes.length > 0) {
-      knex.whereIn('combat_type', filters?.combatTypes);
-    }
-
     if (filters?.rarities && filters.rarities.length > 0) {
       knex.whereIn('rarity', filters?.rarities);
     }

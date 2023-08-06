@@ -26,7 +26,6 @@ export class CharacterTrace {
   type!: CharacterTraceType;
 
   // Relations
-
-  @ManyToOne(() => Character, { ref: true })
+  @ManyToOne(() => Character, { ref: true, onDelete: 'cascade' })
   character!: Ref<Character>;
 }
