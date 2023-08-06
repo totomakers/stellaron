@@ -17,7 +17,11 @@ FROM base AS build
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 RUN pnpm run build
 
-## db
+# ==============
+# Apps =========
+# ==============
+
+## db-api
 FROM base as db-api
 COPY --from=build /monorepo/apps/db-api/dist /monorepo/apps/db-api/dist
 COPY --from=prod-deps /monorepo/node_modules /monorepo/node_modules
@@ -30,4 +34,8 @@ CMD [ "pnpm", "start:prod" ]
 # meta
 FROM pierrezemb/gostatic as meta
 COPY --from=build /monorepo/apps/meta/dist /srv/http
+
+# db
+FROM pierrezemb/gostatic as db
+COPY --from=build /monorepo/apps/db/dist /srv/http
 

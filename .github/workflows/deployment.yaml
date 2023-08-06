@@ -34,3 +34,15 @@ jobs:
 
       - name: Deployment
         run: flyctl deploy --config ./.flyio/meta.fly.toml --app ${{ inputs.domain }}-meta --remote-only
+
+  deploy-db:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup flyctl
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Deployment
+        run: flyctl deploy --config ./.flyio/db.fly.toml --app ${{ inputs.domain }}-db --remote-only

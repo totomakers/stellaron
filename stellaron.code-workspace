@@ -1,12 +1,21 @@
 {
   "folders": [
     {
+      "path": "apps/db",
+      "name": "apps/db"
+    },
+    {
       "path": "apps/db-api",
-      "name": "db-api"
+      "name": "apps/db-api"
     },
     {
       "path": "apps/meta",
-      "name": "meta"
+      "name": "apps/meta"
+    },
+
+    {
+      "path": "libs/design-system",
+      "name": "libs/design-system"
     },
     {
       "path": ".",
@@ -15,7 +24,8 @@
   ],
   "settings": {
     "files.exclude": {
-      "apps": true
+      "apps": true,
+      "libs": true
     }
   }
 }
