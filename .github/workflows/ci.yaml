@@ -35,14 +35,14 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main'
     uses: ./.github/workflows/deployment.yaml
-    secrets: inherit
     with:
-      domain: prod
+      environment: prod
+    secrets: inherit
 
   deployment-dev:
     needs: build
     if: github.ref == 'refs/heads/dev'
     uses: ./.github/workflows/deployment.yaml
-    secrets: inherit
     with:
-      domain: dev
+      environment: dev
+    secrets: inherit

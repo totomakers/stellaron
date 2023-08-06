@@ -1,21 +1,16 @@
 {
   "folders": [
     {
-      "path": "apps/stellaron",
-      "name": "apps/stellaron"
+      "path": "apps/frontend",
+      "name": "frontend"
     },
     {
-      "path": "apps/stellaron-api",
-      "name": "apps/stellaron-api"
+      "path": "apps/api",
+      "name": "api"
     },
-    {
-      "path": "apps/meta",
-      "name": "apps/meta"
-    },
-
     {
       "path": "libs/design-system",
-      "name": "libs/design-system"
+      "name": "design-system"
     },
     {
       "path": ".",
