@@ -2,7 +2,7 @@ primary_region = "cdg"
 
 [build]
   dockerfile = "../Dockerfile"
-  build-target = "stellaron-api"
+  build-target = "api"
 
 [http_service]
   internal_port = 3000

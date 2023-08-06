@@ -2,7 +2,7 @@ primary_region = "cdg"
 
 [build]
   dockerfile = "../Dockerfile"
-  build-target = "stellaron"
+  build-target = "frontend"
 
 [http_service]
   internal_port = 8043
