@@ -1,3 +1,4 @@
+import { registerEnumType } from '@nestjs/graphql';
 import { CharacterAbilityType } from './character-ability-type.enum';
 
 export enum CharacterTraceType__Bonus {
@@ -11,3 +12,7 @@ export const CharacterTraceType = {
 };
 
 export type CharacterTraceType = typeof CharacterTraceType;
+
+registerEnumType(CharacterTraceType, {
+  name: 'CharacterTraceType',
+});

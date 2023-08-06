@@ -1,3 +1,5 @@
+import { registerEnumType } from '@nestjs/graphql';
+
 export enum CharacterStatType_Base {
   Hp = 'hp',
   Atk = 'atk',
@@ -39,3 +41,7 @@ export const CharacterStatType = {
 };
 
 export type CharacterStatType = typeof CharacterStatType;
+
+registerEnumType(CharacterStatType, {
+  name: 'CharacterStatType',
+});
