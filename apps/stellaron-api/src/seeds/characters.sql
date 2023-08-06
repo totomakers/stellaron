@@ -11,11 +11,11 @@ VALUES
 ('natasha', 'Natasha', 'physical', 'abundance', 4),
 ('pela', 'Pela', 'ice', 'nihility', 4),
 ('qingque', 'Qingque', 'quantum', 'erudition', 4),
-('sampo', 'Sampo', 'wind', 'nihility', 4)
+('sampo', 'Sampo', 'wind', 'nihility', 4),
 ('serval', 'Serval', 'lightning', 'erudition', 4),
 ('sushang', 'Sushang', 'physical', 'hunt', 4),
 ('tingyun', 'Tingyun', 'lightning', 'harmony', 4),
-('yukong', 'Yukong', 'imaginary', 'harmony', 4);
+('yukong', 'Yukong', 'imaginary', 'harmony', 4),
 -- 5
 ('bailu', 'Bailu', 'lightning', 'abundance', 5),
 ('blade', 'Blade', 'wind', 'destruction', 5),
@@ -30,4 +30,4 @@ VALUES
 ('trailblazer-fire', 'Trailblazer (Fire)', 'fire', 'preservation', 5),
 ('trailblazer-physical', 'Trailblazer (Physical)', 'physical', 'destruction', 5),
 ('welt', 'Welt', 'imaginary', 'nihility', 5),
-('yanqing', 'Yanqing', 'ice', 'hunt', 5),
+('yanqing', 'Yanqing', 'ice', 'hunt', 5);
