@@ -1,4 +1,4 @@
 name: stellaron
 
 include:
-  - ./apps/db/docker-compose.yaml
+  - ./apps/stellaron-api/docker-compose.yaml

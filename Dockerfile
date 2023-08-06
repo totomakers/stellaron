@@ -17,17 +17,25 @@ FROM base AS build
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 RUN pnpm run build
 
-## db
-FROM base as db-api
-COPY --from=build /monorepo/apps/db-api/dist /monorepo/apps/db-api/dist
-COPY --from=prod-deps /monorepo/node_modules /monorepo/node_modules
-COPY --from=prod-deps /monorepo/apps/db-api/node_modules /monorepo/apps/db-api/node_modules
+# ==============
+# Apps =========
+# ==============
 
-WORKDIR /monorepo/apps/db-api
+## stellaron-api
+FROM base as stellaron-api
+COPY --from=build /monorepo/apps/stellaron-api/dist /monorepo/apps/stellaron-api/dist
+COPY --from=prod-deps /monorepo/node_modules /monorepo/node_modules
+COPY --from=prod-deps /monorepo/apps/stellaron-api/node_modules /monorepo/apps/stellaron-api/node_modules
+
+WORKDIR /monorepo/apps/stellaron-api
 EXPOSE 3000
 CMD [ "pnpm", "start:prod" ]
 
 # meta
 FROM pierrezemb/gostatic as meta
 COPY --from=build /monorepo/apps/meta/dist /srv/http
+
+# stellaron
+FROM pierrezemb/gostatic as stellaron
+COPY --from=build /monorepo/apps/stellaron/dist /srv/http
 

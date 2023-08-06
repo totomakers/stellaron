@@ -1,9 +1,0 @@
-primary_region = "cdg"
-
-[build]
-  dockerfile = "../Dockerfile"
-  build-target = "db-api"
-
-[http_service]
-  internal_port = 3000
-  force_https = true

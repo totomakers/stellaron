@@ -1,13 +1,27 @@
-# Stellaron Monorepo
+# @stellaron
 
-Stellaron monorepo for all project and website
+Monorepo for all [Honkai StarRail](https://hsr.hoyoverse.com/) projects
 
-# Projects
+# Stellaron - Public GraphQL API
 
-## db.stellaron.gg
+## Production
 
-Open source GraphQL Database used by other project.
+[stellaron.xyz](https://stellaron.xyz)
+[api.stellaron.xyz](https://api.stellaron.xyz)
 
-## meta.stellaron.gg
+## Dev
 
-Builds website using `db.stellaron` for getting game data
+[dev.stellaron.xyz](https://dev.stellaron.xyz)
+[dev.api.stellaron.xyz](https://dev.api.stellaron.xyz)
+
+# Meta - Build / Guide
+
+## Production
+
+[meta.stellaron.xyz](https://meta.stellaron.xyz)
+[api.meta.stellaron.xyz](https://api.stellaron.xyz)
+
+## Dev
+
+[dev.meta.stellaron.xyz](https://dev.meta.stellaron.xyz)
+[dev.meta.api.stellaron.xyz](https://dev.api.meta.stellaron.xyz)
