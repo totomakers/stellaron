@@ -1,6 +1,5 @@
 import { Field, InputType, Int } from '@nestjs/graphql';
 import { Path } from '../../../db/enums/path.enum';
-import { CombatType } from '../../../db/enums/combat-type.enum';
 
 @InputType()
 export class LightConesFiltersInput {
@@ -15,7 +14,4 @@ export class LightConesFiltersInput {
   // Search on name - rarity - path
   @Field(() => String, { nullable: true })
   query?: string | null;
-
-  @Field(() => [CombatType], { nullable: true })
-  combatTypes?: CombatType[] | null;
 }

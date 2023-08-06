@@ -101,7 +101,6 @@ enum CombatType {
 }
 
 type LightCone {
-  combatType: CombatType!
   id: ID!
   name: String!
   path: Path!
@@ -121,7 +120,6 @@ input LightConeStatsFiltersInput {
 }
 
 input LightConesFiltersInput {
-  combatTypes: [CombatType!]
   paths: [Path!]
   query: String
   rarities: [Int!]
