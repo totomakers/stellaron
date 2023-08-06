@@ -1,0 +1,9 @@
+primary_region = "cdg"
+
+[build]
+  dockerfile = "../Dockerfile"
+  build-target = "stellaron"
+
+[http_service]
+  internal_port = 8043
+  force_https = true
