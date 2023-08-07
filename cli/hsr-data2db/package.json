@@ -1,0 +1,41 @@
+{
+  "name": "@stellaron/hsr-data2db",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild && tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "prettier": "prettier \"src/**/*.ts\"",
+    "start": "node ./dist/index.mjs"
+  },
+  "devDependencies": {
+    "@types/degit": "^2.8.3",
+    "@types/minimist": "^1.2.2",
+    "@types/prompts": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "eslint": "^8.46.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.6",
+    "unbuild": "^1.2.1"
+  },
+  "dependencies": {
+    "degit": "^2.8.4",
+    "kolorist": "^1.8.0",
+    "minimist": "^1.2.8",
+    "prompts": "^2.4.2",
+    "zod": "^3.21.4"
+  }
+}
