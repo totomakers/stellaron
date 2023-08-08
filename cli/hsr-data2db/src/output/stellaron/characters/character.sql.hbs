@@ -1,0 +1,16 @@
+
+INSERT INTO character
+("id", "name", "element", "path", "rarity") VALUES
+{{#each characters}}
+({{pg:escape this.id}}, {{pg:escape this.name}},  {{pg:escape (stellaron:element this.element)}}, {{pg:escape (stellaron:path this.path)}}, {{this.rarity}});
+{{/each}}
+
+{{#each characters as |character|}}
+-- {{ character.id }} {{ character.name }}
+INSERT INTO character_skill
+("id", "character_id", "name", "max_level", "desc", "desc_params", "type", "element") VALUES
+{{#each this.skills as |skill|}}
+({{pg:escape skill.id}}, {{ character.id }}, {{pg:escape skill.name}}, {{ skill.max_level}}, {{pg:escape skill.desc}}, {{pg:array skill.params}}, {{pg:escape (stellaron:skillType skill.type)}}, {{pg:escape (stellaron:element skill.element)}})
+{{/each}}
+
+{{/each}}

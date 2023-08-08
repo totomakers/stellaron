@@ -1,7 +1,7 @@
 import hbs from 'handlebars'
 import { parseLightCones } from '../../../adapters/StarRailRes/light-cones/light-cones'
 import fs from 'node:fs'
-import templateInput from './light-cones.sql.hbs'
+import templateInput from './light-cone.sql.hbs'
 import { OUTPUT_DIR } from '../../../config'
 import path from 'node:path'
 
@@ -21,7 +21,7 @@ export const transformLightConesToSql = (
     recursive: true,
   })
 
-  fs.writeFileSync(path.join(outputDir, `light-cones.sql`), compiled, {
+  fs.writeFileSync(path.join(outputDir, `light-cone.sql`), compiled, {
     flag: 'w',
     encoding: 'utf-8',
   })

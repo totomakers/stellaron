@@ -25,6 +25,7 @@ export const characterSkillSchema = z.object({
   type_text: z.string(),
   effect: z.string(),
   effect_text: z.string(),
+  desc: z.string(),
   simple_desc: z.string(),
   params: z.array(z.array(z.number())),
   icon: z.string(),

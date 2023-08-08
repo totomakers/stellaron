@@ -3,6 +3,7 @@ import { parseCharacters } from './adapters/StarRailRes/characters/characters'
 import { parseItems } from './adapters/StarRailRes/items/items'
 import { parseLightCones } from './adapters/StarRailRes/light-cones/light-cones'
 import { parseRelics } from './adapters/StarRailRes/relics/relics'
+import { transformCharactersToSql } from './output/stellaron/characters/characters'
 import { transformLightConesToSql } from './output/stellaron/light-cones/light-cones'
 
 export const jobs = ['light-cones', 'characters', 'items', 'relics'] as const
@@ -21,7 +22,8 @@ export const doJobs = async (actions: Job[]) => {
   }
 
   if (actions.includes('characters')) {
-    parseCharacters()
+    const characters = parseCharacters()
+    transformCharactersToSql(characters)
   }
 
   if (actions.includes('items')) {

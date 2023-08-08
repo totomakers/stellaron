@@ -13,7 +13,7 @@ export const formatPath = (value: string) => {
   const existingMap = mapRecord.has(value)
 
   if (!existingMap) {
-    throw new Error(`Missing map ${value}`)
+    throw new Error(`Missing path mapping for (${value})`)
   }
 
   return mapRecord.get(value)
