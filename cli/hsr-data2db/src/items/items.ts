@@ -1,5 +1,5 @@
 import path from 'path'
-import { STAR_RAIL_RES_DIR } from '../StarRailRes'
+import { STAR_RAIL_RES_DIR } from '../star-rail-res'
 import z from 'zod'
 import { green } from 'kolorist'
 

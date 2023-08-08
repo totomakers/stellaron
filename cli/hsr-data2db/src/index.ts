@@ -1,5 +1,5 @@
 import prompts, { PromptObject } from 'prompts'
-import { degitStarRailRes } from './StarRailRes'
+import { degitStarRailRes } from './star-rail-res'
 import { parseAndTransformLightCones } from './light-cones/light-cones'
 import { parseAndTransformCharacters } from './characters/characters'
 import { parseAndTransformItems } from './items/items'

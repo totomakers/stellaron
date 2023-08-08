@@ -1,6 +1,6 @@
 
-INSERT INTO public.light_cone
+INSERT INTO light_cone
 (id, "name", "path", rarity)
 {{#each lightCones}}
-VALUES({{pg:escape this.id}}, {{pg:escape this.name}}, {{pg:escape this.path}}, {{this.rarity}});
+VALUES({{pg:escape this.id}}, {{pg:escape this.name}}, {{pg:escape (stellaron:path this.path)}}, {{this.rarity}});
 {{/each}}

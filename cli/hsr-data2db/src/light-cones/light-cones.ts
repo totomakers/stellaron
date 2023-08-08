@@ -1,5 +1,5 @@
 import path from 'path'
-import { STAR_RAIL_RES_DIR } from '../StarRailRes'
+import { STAR_RAIL_RES_DIR } from '../star-rail-res'
 import z from 'zod'
 import { green } from 'kolorist'
 import fs from 'fs'
@@ -88,7 +88,7 @@ const dataToSql = (data: LightConeData) => {
     recursive: true,
   })
 
-  fs.writeFileSync(path.join(outputDir, `lightCones.sql`), compiled, {
+  fs.writeFileSync(path.join(outputDir, `light-cones.sql`), compiled, {
     flag: 'w',
     encoding: 'utf-8',
   })
