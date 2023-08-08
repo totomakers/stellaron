@@ -2,6 +2,7 @@ import path from 'path'
 import { STAR_RAIL_RES_DIR } from '../StarRailRes'
 import z from 'zod'
 import { green } from 'kolorist'
+import fs from 'fs'
 
 import { readAndParse } from '../utils'
 import {
@@ -9,6 +10,9 @@ import {
   lightConeRankSchema,
   lightConeSchema,
 } from './light-cones.schema'
+import { OUTPUT_DIR } from '../config'
+import templateInput from './light-cones.sql.hbs'
+import hbs from 'handlebars'
 
 const filePaths = {
   lightCones: path.join(
@@ -30,6 +34,10 @@ const filePaths = {
     'light_cone_ranks.json'
   ),
 }
+
+const template = hbs.compile(templateInput, {
+  noEscape: true,
+})
 
 export const parseAndTransformLightCones = () => {
   const data = getData()
@@ -70,4 +78,18 @@ const dataToSql = (data: LightConeData) => {
     return
 
   console.log(green(`🔥 ${Object.entries(data.lightCones).length} lightCones`))
+
+  const compiled = template({
+    lightCones: Object.values(data.lightCones),
+  })
+
+  const outputDir = path.join(OUTPUT_DIR)
+  fs.mkdirSync(outputDir, {
+    recursive: true,
+  })
+
+  fs.writeFileSync(path.join(outputDir, `lightCones.sql`), compiled, {
+    flag: 'w',
+    encoding: 'utf-8',
+  })
 }

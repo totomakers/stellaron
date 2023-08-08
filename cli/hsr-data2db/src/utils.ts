@@ -20,7 +20,6 @@ export const readAndParse = <T extends z.ZodTypeAny>(
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const parsed = JSON.parse(file.toString())
-
   const result = arg.safeParse(parsed)
 
   if (!result.success) {

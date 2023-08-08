@@ -4,6 +4,7 @@ import { parseAndTransformLightCones } from './light-cones/light-cones'
 import { parseAndTransformCharacters } from './characters/characters'
 import { parseAndTransformItems } from './items/items'
 import { parseAndTransformRelics } from './relics/relics'
+import './handlebars'
 
 const initialPrompt = {
   type: 'select',

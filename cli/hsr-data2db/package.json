@@ -13,28 +13,30 @@
     "dist"
   ],
   "scripts": {
-    "dev": "unbuild --stub",
-    "build": "unbuild && tsc --noEmit",
-    "typecheck": "tsc --noEmit",
+    "dev": "tsup-node src/index.ts --watch",
+    "build": "tsup-node src/index.ts",
+    "start": "node ./dist/index.cjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "prettier": "prettier \"src/**/*.ts\"",
-    "start": "node ./dist/index.mjs"
+    "prettier": "prettier \"src/**/*.ts\""
   },
   "devDependencies": {
     "@types/degit": "^2.8.3",
     "@types/minimist": "^1.2.2",
     "@types/prompts": "^2.4.4",
+    "@types/pg-escape": "^0.2.1",
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",
     "eslint": "^8.46.0",
     "prettier": "^2.8.8",
-    "typescript": "^5.1.6",
-    "unbuild": "^1.2.1"
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6"
   },
   "dependencies": {
     "degit": "^2.8.4",
+    "handlebars": "^4.7.8",
     "kolorist": "^1.8.0",
     "minimist": "^1.2.8",
+    "pg-escape": "^0.2.0",
     "prompts": "^2.4.2",
     "zod": "^3.21.4"
   }
