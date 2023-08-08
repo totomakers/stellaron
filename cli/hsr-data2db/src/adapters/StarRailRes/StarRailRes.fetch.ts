@@ -1,8 +1,6 @@
 import degit from 'degit'
 import fs from 'fs'
-
-export const GITHUB_SOURCE = 'https://github.com/Mar-7th/StarRailRes.git'
-export const STAR_RAIL_RES_DIR = './temp/starRailRes'
+import { GITHUB_SOURCE, STAR_RAIL_RES_DIR } from './StarRailRes.config'
 
 export const degitStarRailRes = async () => {
   fs.rmSync(STAR_RAIL_RES_DIR, { recursive: true, force: true }) // Clean

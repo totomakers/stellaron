@@ -1,10 +1,9 @@
 import prompts, { PromptObject } from 'prompts'
-import { degitStarRailRes } from './star-rail-res'
-import { parseAndTransformLightCones } from './light-cones/light-cones'
-import { parseAndTransformCharacters } from './characters/characters'
-import { parseAndTransformItems } from './items/items'
-import { parseAndTransformRelics } from './relics/relics'
+
 import './handlebars'
+
+import { Job, doJobs, jobs } from './jobs'
+import { degitStarRailRes } from './adapters/StarRailRes/StarRailRes.fetch'
 
 const initialPrompt = {
   type: 'select',
@@ -17,7 +16,7 @@ const initialPrompt = {
   ],
 } satisfies PromptObject
 
-const actionsPrompt = {
+const specificPrompt = {
   type: 'multiselect',
   name: 'actions',
   message: 'Select what you want',
@@ -43,49 +42,24 @@ const debugPrompt = {
 
 const handleDebug = async () => {
   const { script } = await prompts(debugPrompt)
-
   if (script === 'fetch-StarRailRes') await degitStarRailRes()
 }
 
 const handleSpecific = async () => {
-  const { actions } = await prompts(actionsPrompt)
+  const { actions } = await prompts(specificPrompt)
 
-  if (!Array.isArray(actions) || actions.length === 0) {
-    return
-  }
-
-  await degitStarRailRes()
-
-  if (actions.includes('light-cones')) {
-    parseAndTransformLightCones()
-  }
-
-  if (actions.includes('characters')) {
-    parseAndTransformCharacters()
-  }
-
-  if (actions.includes('items')) {
-    parseAndTransformItems()
-  }
-
-  if (actions.includes('relics')) {
-    parseAndTransformRelics()
+  if (Array.isArray(actions)) {
+    await doJobs(actions as Job[])
   }
 }
 
 const handleAll = async () => {
   console.time('all')
-
-  // Fetch starRailRes
-  await degitStarRailRes()
-
-  parseAndTransformCharacters()
-  parseAndTransformLightCones()
-  parseAndTransformItems()
-  parseAndTransformRelics()
-
+  await doJobs([...jobs])
   console.timeEnd('all')
 }
+
+// =============
 
 async function init() {
   try {
