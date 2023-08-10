@@ -2,55 +2,36 @@ import prompts, { PromptObject } from 'prompts'
 
 import './handlebars'
 
-import { Job, doJobs, jobs } from './jobs'
-import { degitStarRailRes } from './adapters/StarRailRes/StarRailRes.fetch'
+import { doJobs, jobs } from './jobs'
+import { degitStarRailData } from './adapters/StarRailData/fetch'
+import { generateAllSchemas } from './adapters/StarRailData/generateSchema'
 
-const initialPrompt = {
-  type: 'select',
-  name: 'step',
-  message: 'Hello travelers - what you want to do ?',
-  choices: [
-    { title: '🚀 All', value: 'all' },
-    { title: '✅ Specific', value: 'specific' },
-    { title: '🧠 Debug', value: 'debug' },
-  ],
-} satisfies PromptObject
+import path from 'node:path'
+import { DEST_SCHEMA_FOLDER } from './adapters/StarRailData/config'
+import { writeTsFile } from './utils'
 
-const specificPrompt = {
-  type: 'multiselect',
-  name: 'actions',
-  message: 'Select what you want',
-  choices: [
-    { title: 'LightCones', value: 'light-cones' },
-    { title: 'Characters', value: 'characters' },
-    { title: 'Items', value: 'items' },
-    { title: 'Relics', value: 'relics' },
-  ],
-} satisfies PromptObject
-
-const debugPrompt = {
-  type: 'select',
-  name: 'script',
-  message: 'Select what you want do',
-  choices: [
-    {
-      title: '⏬ Fetch StarRailRes',
-      value: 'fetch-StarRailRes',
-    },
-  ],
-} satisfies PromptObject
-
-const handleDebug = async () => {
-  const { script } = await prompts(debugPrompt)
-  if (script === 'fetch-StarRailRes') await degitStarRailRes()
+const handleFetch = async () => {
+  await degitStarRailData()
 }
 
-const handleSpecific = async () => {
-  const { actions } = await prompts(specificPrompt)
+const handleGenerateTypes = async () => {
+  const output = await generateAllSchemas()
 
-  if (Array.isArray(actions)) {
-    await doJobs(actions as Job[])
-  }
+  await Promise.all(
+    output.map(async (o) => {
+      const dest = path.join(
+        DEST_SCHEMA_FOLDER,
+        `${o.name}.schema.generated.ts`,
+      )
+      const input = o.generated.lines.join('\n')
+
+      return writeTsFile(dest, input)
+    }),
+  )
+}
+
+const handleGenerateSql = async () => {
+  // @TODO
 }
 
 const handleAll = async () => {
@@ -60,15 +41,27 @@ const handleAll = async () => {
 }
 
 // =============
+const initPrompt = {
+  type: 'select',
+  name: 'step',
+  message: 'Hello travelers - what you want to do ?',
+  choices: [
+    { title: '⏬ Download source', value: 'fetch' },
+    { title: '🚀 Generate types', value: 'generate:types' },
+    { title: '✅ Generate Stellaron SQL', value: 'generate:sql' },
+    { title: '🧠 Pull & Update & Generate', value: 'do-all' },
+  ],
+} satisfies PromptObject
 
 async function init() {
   try {
     // Prompts
-    const { step } = await prompts(initialPrompt)
+    const { step } = await prompts(initPrompt)
 
-    if (step === 'all') await handleAll()
-    if (step === 'specific') await handleSpecific()
-    if (step === 'debug') await handleDebug()
+    if (step === 'fetch') await handleFetch()
+    if (step === 'generate:types') await handleGenerateTypes()
+    if (step === 'generate:sql') await handleGenerateSql()
+    if (step === 'do-all') await handleAll()
   } catch (cancelled: unknown) {
     console.log((cancelled as Error).message)
     return

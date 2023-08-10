@@ -1,23 +1,8 @@
 import escape from 'pg-escape'
 import handlebars from 'handlebars'
-import { formatPath } from './output/stellaron/format-path'
-import { formatElement } from './output/stellaron/format-element'
-import { formatSkillType } from './output/stellaron/format-skill-type'
 
 handlebars.registerHelper('pg:escape', function (aString: string) {
   return escape.literal(aString)
-})
-
-handlebars.registerHelper('stellaron:path', function (aString: string) {
-  return formatPath(aString)
-})
-
-handlebars.registerHelper('stellaron:element', function (aString: string) {
-  return formatElement(aString)
-})
-
-handlebars.registerHelper('stellaron:skillType', function (aString: string) {
-  return formatSkillType(aString)
 })
 
 const transformArray = (value: NestedArray) => {

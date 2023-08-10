@@ -6,15 +6,9 @@ Sources
 - [StarRailTextures](https://github.com/umaichanuwu/StarRailTextures) All textures
 - [StarRailRes](https://github.com/Mar-7th/StarRailRes) Ready formatted data
 
-## Why create a tool for sync ?
+## How it's work
 
-- 🚀 Performance
-- 🧠 Advance query
-
-## Command line
-
-Just run and answer question
-
-```
-hsr-data2db
-```
+1. We download src without git history
+2. Crawl source for getting all JSON
+3. Generate type
+4. Genete output
