@@ -10,6 +10,7 @@ import path from 'node:path'
 import { DEST_SCHEMA_FOLDER } from './adapters/StarRailData/config'
 import { writeTsFile } from './utils'
 import { useCharacter } from './stellaron/character'
+import { useText } from './stellaron/text'
 
 const handleFetch = async () => {
   await degitStarRailData()
@@ -32,10 +33,48 @@ const handleGenerateTypes = async () => {
 }
 
 const handleGenerateSql = async () => {
-  const { data } = useCharacter()
+  const { data: characterData } = useCharacter()
+  const { getText } = useText()
 
-  Object.values(data.avatar.config ?? []).map((c) => {
-    console.log(c.Rarity, c.AvatarID, c.AvatarFullName)
+  Object.values(characterData.avatarConfig ?? []).map((c) => {
+    const itemConfig = characterData.itemConfigAvatar?.[c.AvatarID]
+    const promotion = characterData.avatarPromotionConfig?.[c.AvatarID]
+
+    const skills = Object.values(characterData.avatarSkillConfig || {}).filter(
+      (_, index) => {
+        const isCharacterSKill = Object.keys(
+          characterData.avatarSkillConfig || {},
+        )[index].startsWith(`${c.AvatarID}`)
+
+        return isCharacterSKill
+      },
+    )
+
+    if (!itemConfig || !promotion || !skills) return
+
+    console.log(`======= ${c.AvatarID} =====`)
+    console.log('rarity', c.Rarity)
+    console.log('path', c.AvatarBaseType)
+    console.log('name', getText(itemConfig.ItemName))
+    console.log('stats at max', {
+      hp: promotion['6'].HPBase.Value,
+      atq: promotion['6'].AttackBase.Value,
+      def: promotion['6'].DefenceBase.Value,
+      speed: promotion['6'].SpeedBase.Value,
+      critRate: promotion['6'].CriticalChance.Value,
+      critDmg: promotion['6'].CriticalDamage.Value,
+    })
+    console.log(`skills (${Object.keys(skills).length})`)
+
+    Object.values(skills).map((s, index) => {
+      const firstLevel = Object.values(s).at(0)
+
+      if (!firstLevel) return
+
+      console.log('    ', `skills:${index}`)
+      console.log('    ', 'type', firstLevel.AttackType)
+      console.log('    ', 'name', getText(firstLevel.SkillName))
+    })
   })
 }
 
