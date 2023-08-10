@@ -72,6 +72,7 @@ const handleGenerateSql = async () => {
       if (!firstLevel) return
 
       console.log('    ', `skills:${index}`)
+      console.log('    ', 'id', firstLevel.SkillID)
       console.log('    ', 'type', firstLevel.AttackType)
       console.log('    ', 'name', getText(firstLevel.SkillName))
     })
