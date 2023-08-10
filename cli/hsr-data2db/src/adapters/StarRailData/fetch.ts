@@ -1,9 +1,9 @@
 import degit from 'degit'
 import fs from 'fs'
-import { GITHUB_SOURCE, DEST_DIR } from './config'
+import { GITHUB_SOURCE, STAR_RAIL_DATA_DIR } from './config'
 
 export const degitStarRailData = async () => {
-  fs.rmSync(DEST_DIR, { recursive: true, force: true }) // Clean
+  fs.rmSync(STAR_RAIL_DATA_DIR, { recursive: true, force: true }) // Clean
 
   const emitter = degit(GITHUB_SOURCE, {
     cache: false,
@@ -15,5 +15,5 @@ export const degitStarRailData = async () => {
     console.log(info.message)
   })
 
-  return emitter.clone(DEST_DIR)
+  return emitter.clone(STAR_RAIL_DATA_DIR)
 }

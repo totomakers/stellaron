@@ -1,0 +1,5 @@
+INSERT INTO character
+("id", "name", "damage-type", "path", "rarity") VALUES
+{{#each characters }}
+({{ pg:escape this.id }}, {{ pg:escape this.name }},  {{ pg:escape this.damageType }}, {{ pg:escape this.path }}, {{ pg:escape this.rarity }}),
+{{/each}}

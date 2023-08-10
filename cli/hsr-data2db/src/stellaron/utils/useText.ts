@@ -1,9 +1,9 @@
 import { z } from 'zod'
-import { DEST_DIR } from '../adapters/StarRailData/config'
 import { readAndParse } from './loadData'
 import { join } from 'node:path'
+import { STAR_RAIL_DATA_DIR } from '../../adapters/StarRailData/config'
 
-const basePath = join(DEST_DIR, '/TextMap')
+const basePath = join(STAR_RAIL_DATA_DIR, '/TextMap')
 
 const loadData = () => {
   return {

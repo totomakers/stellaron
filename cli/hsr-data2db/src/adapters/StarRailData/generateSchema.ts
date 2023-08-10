@@ -7,7 +7,7 @@ import {
 import { fdir } from 'fdir'
 import fs from 'node:fs'
 import path from 'node:path'
-import { DEST_DIR } from './config'
+import { STAR_RAIL_DATA_DIR } from './config'
 
 const getAllFiles = () => {
   const crawler = new fdir().normalize().glob('./**/*.json')
@@ -49,7 +49,7 @@ export const generateAllSchemas = async () => {
 
   return Promise.all(
     allFiles.map(async (f) => {
-      const finalPath = path.join(DEST_DIR, '/ExcelOutput', f)
+      const finalPath = path.join(STAR_RAIL_DATA_DIR, '/ExcelOutput', f)
       return generateSchema(finalPath)
     }),
   )

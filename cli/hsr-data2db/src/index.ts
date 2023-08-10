@@ -2,15 +2,15 @@ import prompts, { PromptObject } from 'prompts'
 
 import './handlebars'
 
-import { doJobs, jobs } from './jobs'
 import { degitStarRailData } from './adapters/StarRailData/fetch'
 import { generateAllSchemas } from './adapters/StarRailData/generateSchema'
 
 import path from 'node:path'
 import { DEST_SCHEMA_FOLDER } from './adapters/StarRailData/config'
 import { writeTsFile } from './utils'
-import { useCharacter } from './stellaron/character'
-import { useText } from './stellaron/text'
+import { generateCharacters } from './stellaron/characters/characters'
+import { generateCharacterAbilities } from './stellaron/character-abilities/character-abilities'
+import { generateCharacterTraces } from './stellaron/character-traces/character-traces'
 
 const handleFetch = async () => {
   await degitStarRailData()
@@ -32,57 +32,35 @@ const handleGenerateTypes = async () => {
   )
 }
 
+// Sql Prompt
+
+const sqlPrompt = {
+  type: 'multiselect',
+  name: 'sqls',
+  message: 'Select sql file to update',
+  choices: [
+    { title: 'characters.sql', value: 'characters', selected: true },
+    {
+      title: 'character-abilities.sql',
+      value: 'character-abilities',
+      selected: true,
+    },
+    {
+      title: 'characters-traces.sql',
+      value: 'character-traces',
+      selected: true,
+    },
+  ],
+} satisfies PromptObject
+
 const handleGenerateSql = async () => {
-  const { data: characterData } = useCharacter()
-  const { getText } = useText()
+  const { sqls } = await prompts(sqlPrompt)
 
-  Object.values(characterData.avatarConfig ?? []).map((c) => {
-    const itemConfig = characterData.itemConfigAvatar?.[c.AvatarID]
-    const promotion = characterData.avatarPromotionConfig?.[c.AvatarID]
+  if (!Array.isArray(sqls) || sqls.length === 0) return
 
-    const skills = Object.values(characterData.avatarSkillConfig || {}).filter(
-      (_, index) => {
-        const isCharacterSKill = Object.keys(
-          characterData.avatarSkillConfig || {},
-        )[index].startsWith(`${c.AvatarID}`)
-
-        return isCharacterSKill
-      },
-    )
-
-    if (!itemConfig || !promotion || !skills) return
-
-    console.log(`======= ${c.AvatarID} =====`)
-    console.log('rarity', c.Rarity)
-    console.log('path', c.AvatarBaseType)
-    console.log('name', getText(itemConfig.ItemName))
-    console.log('stats at max', {
-      hp: promotion['6'].HPBase.Value,
-      atq: promotion['6'].AttackBase.Value,
-      def: promotion['6'].DefenceBase.Value,
-      speed: promotion['6'].SpeedBase.Value,
-      critRate: promotion['6'].CriticalChance.Value,
-      critDmg: promotion['6'].CriticalDamage.Value,
-    })
-    console.log(`skills (${Object.keys(skills).length})`)
-
-    Object.values(skills).map((s, index) => {
-      const firstLevel = Object.values(s).at(0)
-
-      if (!firstLevel) return
-
-      console.log('    ', `skills:${index}`)
-      console.log('    ', 'id', firstLevel.SkillID)
-      console.log('    ', 'type', firstLevel.AttackType)
-      console.log('    ', 'name', getText(firstLevel.SkillName))
-    })
-  })
-}
-
-const handleAll = async () => {
-  console.time('all')
-  await doJobs([...jobs])
-  console.timeEnd('all')
+  if (sqls.includes('characters')) generateCharacters()
+  if (sqls.includes('character-abilities')) generateCharacterAbilities()
+  if (sqls.includes('character-traces')) generateCharacterTraces()
 }
 
 // =============
@@ -94,7 +72,6 @@ const initPrompt = {
     { title: '⏬ Download source', value: 'fetch' },
     { title: '🚀 Generate types', value: 'generate:types' },
     { title: '✅ Generate Stellaron SQL', value: 'generate:sql' },
-    { title: '🧠 Pull & Update & Generate', value: 'do-all' },
   ],
 } satisfies PromptObject
 
@@ -106,7 +83,6 @@ async function init() {
     if (step === 'fetch') await handleFetch()
     if (step === 'generate:types') await handleGenerateTypes()
     if (step === 'generate:sql') await handleGenerateSql()
-    if (step === 'do-all') await handleAll()
   } catch (cancelled: unknown) {
     console.log((cancelled as Error).message)
     return

@@ -1,6 +1,8 @@
 import { red } from 'kolorist'
 import fs from 'node:fs'
 import { z } from 'zod'
+import { join } from 'node:path'
+import { STAR_RAIL_DATA_DIR } from '../../adapters/StarRailData/config'
 
 function makeSchemaOptional<T extends z.ZodTypeAny>(schema: T) {
   return schema.optional()
@@ -13,6 +15,8 @@ function readFile(path: string) {
 
   return fs.readFileSync(path)
 }
+
+export const BASE_PATH = join(STAR_RAIL_DATA_DIR, '/ExcelOutput')
 
 export const readAndParse = <T extends z.ZodTypeAny>(
   path: string,

@@ -1,8 +1,8 @@
 import escape from 'pg-escape'
 import handlebars from 'handlebars'
 
-handlebars.registerHelper('pg:escape', function (aString: string) {
-  return escape.literal(aString)
+handlebars.registerHelper('pg:escape', function (aString?: string) {
+  return aString ? escape.literal(aString) : 'NULL'
 })
 
 const transformArray = (value: NestedArray) => {

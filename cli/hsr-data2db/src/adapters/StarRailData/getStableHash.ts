@@ -1,7 +1,7 @@
 // What you should except
 // SkillPointName_1001101 = 2078331665
 // 371857150 = '' (empty string)
-const getStableHash = (str: string) => {
+export const getStableHash = (str: string) => {
   let hash1 = 5381n
   let hash2 = 5381n
 
