@@ -9,6 +9,7 @@ import { generateAllSchemas } from './adapters/StarRailData/generateSchema'
 import path from 'node:path'
 import { DEST_SCHEMA_FOLDER } from './adapters/StarRailData/config'
 import { writeTsFile } from './utils'
+import { useCharacter } from './stellaron/character'
 
 const handleFetch = async () => {
   await degitStarRailData()
@@ -31,7 +32,11 @@ const handleGenerateTypes = async () => {
 }
 
 const handleGenerateSql = async () => {
-  // @TODO
+  const { data } = useCharacter()
+
+  Object.values(data.avatar.config ?? []).map((c) => {
+    console.log(c.Rarity, c.AvatarID, c.AvatarFullName)
+  })
 }
 
 const handleAll = async () => {

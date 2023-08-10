@@ -7,8 +7,8 @@ import {
 import { fdir } from 'fdir'
 import fs from 'node:fs'
 import path from 'node:path'
-import { DEST_SCHEMA_FOLDER } from './config'
-import fsExtra from 'fs-extra'
+import { DEST_DIR } from './config'
+// import fsExtra from 'fs-extra'
 
 const getAllFiles = () => {
   const crawler = new fdir().normalize().glob('./**/*.json')
@@ -38,19 +38,21 @@ const generateSchema = async (filePath: string) => {
 
   return {
     name: name,
+    path: filePath,
     generated,
   }
 }
 
 export const generateAllSchemas = async () => {
-  fsExtra.emptyDirSync(DEST_SCHEMA_FOLDER)
+  // fsExtra.emptyDirSync(DEST_SCHEMA_FOLDER)
 
   const allFiles = getAllFiles()
 
-  return Promise.all(
-    allFiles.map(async (f) => {
-      const finalPath = path.join('./temp/StairRailData/ExcelOutput', f)
+  return Promise.all([
+    ...allFiles.map(async (f) => {
+      const finalPath = path.join(DEST_DIR, '/ExcelOutput', f)
       return generateSchema(finalPath)
     }),
-  )
+    generateSchema(path.join(DEST_DIR, '/TextMap/', 'TextMapEN.json')),
+  ])
 }
