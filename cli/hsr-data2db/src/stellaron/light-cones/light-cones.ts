@@ -26,7 +26,6 @@ const parseRawData = () => {
 const formatRawData = (data: ReturnType<typeof parseRawData>) => {
   const { getText } = useText()
 
-  // Getting all characters
   const lightCones = Object.values(data.equipmentConfig || {}).map((c) => {
     return {
       id: `${c.EquipmentID}`,

@@ -25,7 +25,6 @@ const parseRawData = () => {
 const formatRawData = (data: ReturnType<typeof parseRawData>) => {
   const { getText } = useText()
 
-  // Getting all characters
   const characters = Object.values(data.avatarConfig || {}).map((c) => {
     return {
       id: `${c.AvatarID}`,

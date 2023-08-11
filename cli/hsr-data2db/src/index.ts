@@ -12,6 +12,8 @@ import { generateCharacters } from './stellaron/characters/characters'
 import { generateCharacterAbilities } from './stellaron/character-abilities/character-abilities'
 import { generateCharacterTraces } from './stellaron/character-traces/character-traces'
 import { generateLightCones } from './stellaron/light-cones/light-cones'
+import { generateRelicSets } from './stellaron/relic-sets/relic-sets'
+import { generateRelics } from './stellaron/relics/relics'
 
 const handleFetch = async () => {
   await degitStarRailData()
@@ -56,6 +58,16 @@ const sqlPrompt = {
       value: 'light-cones',
       selected: true,
     },
+    {
+      title: 'relic-sets.sql',
+      value: 'relic-sets',
+      selected: true,
+    },
+    {
+      title: 'relics.sql',
+      value: 'relics',
+      selected: true,
+    },
   ],
 } satisfies PromptObject
 
@@ -68,6 +80,8 @@ const handleGenerateSql = async () => {
   if (sqls.includes('character-abilities')) generateCharacterAbilities()
   if (sqls.includes('character-traces')) generateCharacterTraces()
   if (sqls.includes('light-cones')) generateLightCones()
+  if (sqls.includes('relic-sets')) generateRelicSets()
+  if (sqls.includes('relics')) generateRelics()
 }
 
 // =============

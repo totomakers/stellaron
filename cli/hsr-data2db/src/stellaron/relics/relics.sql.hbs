@@ -1,0 +1,5 @@
+INSERT INTO "relics"
+("id", "relic_set_id", "type", "name") VALUES
+{{#each relics }}
+({{ pg:escape this.id }}, {{ pg:escape this.relicSetId }}, {{ pg:escape this.type }}, {{ pg:escape this.name }}){{#if @last}}; {{else}}, {{/if}}
+{{/each}}
