@@ -1,5 +1,5 @@
-INSERT INTO character-trace
+INSERT INTO "character-trace"
 ("id", "name", "type", "character-id", "linked-ability-id") VALUES
 {{#each characterTraces }}
-({{ pg:escape this.id }}, {{ pg:escape this.name }},  {{ this.type }}, {{ pg:escape this.characterId }}, {{ pg:escape this.linkedAbilityId }}),
+({{ pg:escape this.id }}, {{ pg:escape this.name }},  {{ this.type }}, {{ pg:escape this.characterId }}, {{ pg:escape this.linkedAbilityId }}){{#if @last}}; {{else}}, {{/if}}
 {{/each}}

@@ -11,6 +11,7 @@ import { writeTsFile } from './utils'
 import { generateCharacters } from './stellaron/characters/characters'
 import { generateCharacterAbilities } from './stellaron/character-abilities/character-abilities'
 import { generateCharacterTraces } from './stellaron/character-traces/character-traces'
+import { generateLightCones } from './stellaron/light-cones/light-cones'
 
 const handleFetch = async () => {
   await degitStarRailData()
@@ -46,8 +47,13 @@ const sqlPrompt = {
       selected: true,
     },
     {
-      title: 'characters-traces.sql',
+      title: 'character-traces.sql',
       value: 'character-traces',
+      selected: true,
+    },
+    {
+      title: 'light-cones.sql',
+      value: 'light-cones',
       selected: true,
     },
   ],
@@ -61,6 +67,7 @@ const handleGenerateSql = async () => {
   if (sqls.includes('characters')) generateCharacters()
   if (sqls.includes('character-abilities')) generateCharacterAbilities()
   if (sqls.includes('character-traces')) generateCharacterTraces()
+  if (sqls.includes('light-cones')) generateLightCones()
 }
 
 // =============
