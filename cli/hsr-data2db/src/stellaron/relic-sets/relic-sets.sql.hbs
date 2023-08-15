@@ -1,0 +1,11 @@
+INSERT INTO "relic-set"
+("id", "name") VALUES
+{{#each relicSets }}
+({{ pg:escape this.id }}, {{ pg:escape this.name }}){{#if @last}}; {{else}}, {{/if}}
+{{/each}}
+
+INSERT INTO "relic-set-effect"
+("id", "desc", "required_num", "relic_set_id") VALUES
+{{#each relicSetEffects }}
+({{ pg:escape this.id }}, {{ pg:escape this.desc }}, {{ this.requiredNum }}, {{ pg:escape this.relicSetId }}) {{#if @last}}; {{else}}, {{/if}}
+{{/each}}
