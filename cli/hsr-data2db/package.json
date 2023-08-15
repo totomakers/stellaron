@@ -1,0 +1,48 @@
+{
+  "name": "@stellaron/hsr-data2db",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsup-node src/index.ts --watch",
+    "build": "tsup-node src/index.ts",
+    "start": "node ./dist/index.cjs",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "prettier": "prettier \"src/**/*.ts\""
+  },
+  "devDependencies": {
+    "@types/degit": "^2.8.3",
+    "@types/fs-extra": "^11.0.1",
+    "@types/minimist": "^1.2.2",
+    "@types/pg-escape": "^0.2.1",
+    "@types/prompts": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "eslint": "^8.46.0",
+    "prettier": "^3.0.1",
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "degit": "^2.8.4",
+    "fdir": "^6.0.2",
+    "fs-extra": "^11.1.1",
+    "handlebars": "^4.7.8",
+    "kolorist": "^1.8.0",
+    "minimist": "^1.2.8",
+    "pg-escape": "^0.2.0",
+    "picomatch": "^2.3.1",
+    "prompts": "^2.4.2",
+    "quicktype-core": "^23.0.64",
+    "zod": "^3.21.4"
+  }
+}

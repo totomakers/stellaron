@@ -1,6 +1,14 @@
 {
   "folders": [
     {
+      "path": ".",
+      "name": "monorepo"
+    },
+    {
+      "path": "libs/design-system",
+      "name": "design-system"
+    },
+    {
       "path": "apps/frontend",
       "name": "frontend"
     },
@@ -9,18 +17,15 @@
       "name": "api"
     },
     {
-      "path": "libs/design-system",
-      "name": "design-system"
-    },
-    {
-      "path": ".",
-      "name": "monorepo"
+      "path": "cli/hsr-data2db",
+      "name": "hsr-data2db"
     }
   ],
   "settings": {
     "files.exclude": {
       "apps": true,
-      "libs": true
+      "libs": true,
+      "cli": true
     }
   }
 }

@@ -1,0 +1,81 @@
+import * as z from "zod";
+
+export const AdventureStatusHintNewSchema = z.object({
+  FuncName: z.string(),
+  Priority: z.number(),
+});
+export type AdventureStatusHintNew = z.infer<
+  typeof AdventureStatusHintNewSchema
+>;
+
+export const AchievementLevelUpSchema = z.object({
+  FuncName: z.string(),
+  Duration: z.number(),
+  Priority: z.number(),
+  IsinBattle: z.union([z.boolean(), z.null()]).optional(),
+});
+export type AchievementLevelUp = z.infer<typeof AchievementLevelUpSchema>;
+
+export const ToastManagerSchema = z.object({
+  MissionStart: AdventureStatusHintNewSchema,
+  MissionFinish: AdventureStatusHintNewSchema,
+  PlayerExpGet: AchievementLevelUpSchema,
+  WorldLevelUP: AchievementLevelUpSchema,
+  NewSystemOpen: AdventureStatusHintNewSchema,
+  NewAvatarDrop: AchievementLevelUpSchema,
+  PrestigeLevelUp: AchievementLevelUpSchema,
+  HeroPathExpGet: AchievementLevelUpSchema,
+  HeroPathLevelUp: AchievementLevelUpSchema,
+  ChallengeEventStart: AchievementLevelUpSchema,
+  ChallengeEventFinish: AchievementLevelUpSchema,
+  ChallengeEventPrepare: AchievementLevelUpSchema,
+  RogueBlessLevelUp: AchievementLevelUpSchema,
+  TrialAvatarAddHint: AchievementLevelUpSchema,
+  AreaChangeHint: AchievementLevelUpSchema,
+  ImportItemToast: AchievementLevelUpSchema,
+  NewItemToast: AchievementLevelUpSchema,
+  AchievementToast: AchievementLevelUpSchema,
+  PlayerLevelUp: AchievementLevelUpSchema,
+  TutorialStart: AdventureStatusHintNewSchema,
+  MissionSuspend: AdventureStatusHintNewSchema,
+  MissionAdvance: AdventureStatusHintNewSchema,
+  AdventureStatusHintNew: AdventureStatusHintNewSchema,
+  NewProfessionAddHint: AchievementLevelUpSchema,
+  DangerousAreasHint: AchievementLevelUpSchema,
+  AchievementToastBattle: AchievementLevelUpSchema,
+  AchievementLevelUp: AchievementLevelUpSchema,
+  MainMissionComplete: AchievementLevelUpSchema,
+  MainMissionStart: AchievementLevelUpSchema,
+  TutorialGuide: AchievementLevelUpSchema,
+  MazeBuffToast: AchievementLevelUpSchema,
+  UnlockRaid: AchievementLevelUpSchema,
+  TrialAvatarLeaveHint: AchievementLevelUpSchema,
+  AddFriendHint: AchievementLevelUpSchema,
+  ChallengeRewardGet: AdventureStatusHintNewSchema,
+  TrainVisitorHint: AchievementLevelUpSchema,
+  FarmRewardGet: AchievementLevelUpSchema,
+  RaidTargetSuccessHint: AchievementLevelUpSchema,
+  RaidTargetFailHint: AchievementLevelUpSchema,
+  NewDecalUnlock: AchievementLevelUpSchema,
+  RaidTargetMazeSuccessHint: AchievementLevelUpSchema,
+  RaidTargetMazeFailHint: AchievementLevelUpSchema,
+  MazeSkillPointUpgrade: AchievementLevelUpSchema,
+  FarmPropUnlock: AchievementLevelUpSchema,
+  MuseumPhaseUpgrade: AchievementLevelUpSchema,
+  MuseumNewPhaseHint: AchievementLevelUpSchema,
+  MuseumTurnResult: AchievementLevelUpSchema,
+  NewMuseumStaff: AchievementLevelUpSchema,
+  NewMuseumItem: AchievementLevelUpSchema,
+  MuseumGetFund: AchievementLevelUpSchema,
+  MuseumItemCollectionHint: AchievementLevelUpSchema,
+  MuseumTargetFinishHint: AchievementLevelUpSchema,
+  MuseumNewTurnHint: AchievementLevelUpSchema,
+  MuseumRandomEvent: AchievementLevelUpSchema,
+  ChallengeMazeLoopUnlockHint: AchievementLevelUpSchema,
+  ChallengeMazeWorld02Hint: AchievementLevelUpSchema,
+  ChallengeMazeLoopUpdateHint: AchievementLevelUpSchema,
+  BattleEnvBuffHint: AchievementLevelUpSchema,
+  BattleTargetHint: AchievementLevelUpSchema,
+  BattleEndConditionHint: AchievementLevelUpSchema,
+});
+export type ToastManager = z.infer<typeof ToastManagerSchema>;

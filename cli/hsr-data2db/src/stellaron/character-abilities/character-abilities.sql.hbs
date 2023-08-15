@@ -1,0 +1,5 @@
+INSERT INTO "character-ability"
+("id", "name", "type", "effect-type", "character-id") VALUES
+{{#each characterAbilities }}
+({{ pg:escape this.id }}, {{ pg:escape this.name }},  {{ pg:escape this.type }}, {{ pg:escape this.effectType }}, {{ pg:escape this.characterId }}){{#if @last}}; {{else}}, {{/if}}
+{{/each}}
