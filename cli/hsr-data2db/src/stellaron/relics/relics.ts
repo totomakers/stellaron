@@ -43,7 +43,7 @@ const formatRawData = (data: ReturnType<typeof parseRawData>) => {
     if (!r) return
 
     return {
-      id: crypto.randomUUID(),
+      id: r.RelicName.split('RelicName_')[1],
       relicSetId: `${r.SetID}`,
       type: r.Type,
       name: getText({ Hash: getStableHash(r.RelicName) })!,
