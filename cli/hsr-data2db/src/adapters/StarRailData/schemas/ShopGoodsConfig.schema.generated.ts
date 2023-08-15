@@ -1,14 +1,14 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const LimitType1Schema = z.enum([
-  "HasNoRefreshGoods",
-  "Level",
-  "PreGoods",
-]);
-export type LimitType1 = z.infer<typeof LimitType1Schema>;
+  'HasNoRefreshGoods',
+  'Level',
+  'PreGoods',
+])
+export type LimitType1 = z.infer<typeof LimitType1Schema>
 
-export const OnShelfType1Schema = z.enum(["MainMission"]);
-export type OnShelfType1 = z.infer<typeof OnShelfType1Schema>;
+export const OnShelfType1Schema = z.enum(['MainMission'])
+export type OnShelfType1 = z.infer<typeof OnShelfType1Schema>
 
 export const ShopGoodsConfigValueSchema = z.object({
   GoodsID: z.number(),
@@ -33,5 +33,5 @@ export const ShopGoodsConfigValueSchema = z.object({
   LimitType1: z.union([LimitType1Schema, z.null()]).optional(),
   OnShelfType1: z.union([OnShelfType1Schema, z.null()]).optional(),
   IsLimitedTimePurchase: z.union([z.boolean(), z.null()]).optional(),
-});
-export type ShopGoodsConfigValue = z.infer<typeof ShopGoodsConfigValueSchema>;
+})
+export type ShopGoodsConfigValue = z.infer<typeof ShopGoodsConfigValueSchema>

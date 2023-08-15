@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const TestSchema = z.object({
   VOTag: z.string(),
-});
-export type Test = z.infer<typeof TestSchema>;
+})
+export type Test = z.infer<typeof TestSchema>
 
 export const ArlanSchema = z.object({
   VOTag: z.string(),
@@ -15,8 +15,8 @@ export const ArlanSchema = z.object({
   UltraReady: z.union([z.number(), z.null()]).optional(),
   LightHit: z.number(),
   StandBy: z.number(),
-});
-export type Arlan = z.infer<typeof ArlanSchema>;
+})
+export type Arlan = z.infer<typeof ArlanSchema>
 
 export const AvatarVoSchema = z.object({
   mar7th: ArlanSchema,
@@ -54,5 +54,5 @@ export const AvatarVoSchema = z.object({
   danhengil: ArlanSchema,
   luka: ArlanSchema,
   test: TestSchema,
-});
-export type AvatarVo = z.infer<typeof AvatarVoSchema>;
+})
+export type AvatarVo = z.infer<typeof AvatarVoSchema>

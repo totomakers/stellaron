@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const OptionSchema = z.object({
   Hash: z.number(),
-});
-export type Option = z.infer<typeof OptionSchema>;
+})
+export type Option = z.infer<typeof OptionSchema>
 
 export const RandomEventChoiceValueSchema = z.object({
   ChoiceID: z.number(),
@@ -12,7 +12,7 @@ export const RandomEventChoiceValueSchema = z.object({
   EventBuffDay: z.union([z.number(), z.null()]).optional(),
   Option: OptionSchema,
   IsCancel: z.union([z.boolean(), z.null()]).optional(),
-});
+})
 export type RandomEventChoiceValue = z.infer<
   typeof RandomEventChoiceValueSchema
->;
+>

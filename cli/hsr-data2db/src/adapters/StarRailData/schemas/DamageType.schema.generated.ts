@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const DamageTypeIntroClassSchema = z.object({
   Hash: z.number(),
-});
-export type DamageTypeIntroClass = z.infer<typeof DamageTypeIntroClassSchema>;
+})
+export type DamageTypeIntroClass = z.infer<typeof DamageTypeIntroClassSchema>
 
 export const FireSchema = z.object({
   ID: z.string(),
@@ -29,8 +29,8 @@ export const FireSchema = z.object({
   CriticalDamage: z.string(),
   SkillTreePanelPath: z.string(),
   MazeEnterBattleWeakIconPath: z.string(),
-});
-export type Fire = z.infer<typeof FireSchema>;
+})
+export type Fire = z.infer<typeof FireSchema>
 
 export const DamageTypeSchema = z.object({
   Physical: FireSchema,
@@ -40,5 +40,5 @@ export const DamageTypeSchema = z.object({
   Wind: FireSchema,
   Quantum: FireSchema,
   Imaginary: FireSchema,
-});
-export type DamageType = z.infer<typeof DamageTypeSchema>;
+})
+export type DamageType = z.infer<typeof DamageTypeSchema>

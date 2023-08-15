@@ -1,22 +1,22 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const RaritySchema = z.enum([
-  "CombatPowerRelicRarity2",
-  "CombatPowerRelicRarity3",
-  "CombatPowerRelicRarity4",
-  "CombatPowerRelicRarity5",
-]);
-export type Rarity = z.infer<typeof RaritySchema>;
+  'CombatPowerRelicRarity2',
+  'CombatPowerRelicRarity3',
+  'CombatPowerRelicRarity4',
+  'CombatPowerRelicRarity5',
+])
+export type Rarity = z.infer<typeof RaritySchema>
 
 export const TypeSchema = z.enum([
-  "BODY",
-  "FOOT",
-  "HAND",
-  "HEAD",
-  "NECK",
-  "OBJECT",
-]);
-export type Type = z.infer<typeof TypeSchema>;
+  'BODY',
+  'FOOT',
+  'HAND',
+  'HEAD',
+  'NECK',
+  'OBJECT',
+])
+export type Type = z.infer<typeof TypeSchema>
 
 export const RelicConfigValueSchema = z.object({
   ID: z.number(),
@@ -29,5 +29,5 @@ export const RelicConfigValueSchema = z.object({
   ExpType: z.number(),
   ExpProvide: z.number(),
   CoinCost: z.number(),
-});
-export type RelicConfigValue = z.infer<typeof RelicConfigValueSchema>;
+})
+export type RelicConfigValue = z.infer<typeof RelicConfigValueSchema>

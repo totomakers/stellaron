@@ -1,53 +1,53 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const TypeSchema = z.enum(["INT"]);
-export type Type = z.infer<typeof TypeSchema>;
+export const TypeSchema = z.enum(['INT'])
+export type Type = z.infer<typeof TypeSchema>
 
 export const PunkLordPreparePoolSwitchValueSchema = z.object({
   Type: z.string(),
   BoolValue: z.boolean(),
-});
+})
 export type PunkLordPreparePoolSwitchValue = z.infer<
   typeof PunkLordPreparePoolSwitchValueSchema
->;
+>
 
 export const PunkLordPreparePoolSwitchSchema = z.object({
   ConstValueName: z.string(),
   Value: PunkLordPreparePoolSwitchValueSchema,
-});
+})
 export type PunkLordPreparePoolSwitch = z.infer<
   typeof PunkLordPreparePoolSwitchSchema
->;
+>
 
 export const PunkLordAutoSupplyMonsterNumClassSchema = z.object({
   ConstValueName: z.string(),
   Value: ValueSchema,
-});
+})
 export type PunkLordAutoSupplyMonsterNumClass = z.infer<
   typeof PunkLordAutoSupplyMonsterNumClassSchema
->;
+>
 
 export const ValueSchema = z.object({
   Type: TypeSchema,
   IntValue: z.number(),
-});
-export type Value = z.infer<typeof ValueSchema>;
+})
+export type Value = z.infer<typeof ValueSchema>
 
 export const PunkLordActivityPanelRewardValueSchema = z.object({
   Type: z.string(),
   ArrayValue: z.array(ValueSchema),
-});
+})
 export type PunkLordActivityPanelRewardValue = z.infer<
   typeof PunkLordActivityPanelRewardValueSchema
->;
+>
 
 export const PunkLordActivityPanelRewardClassSchema = z.object({
   ConstValueName: z.string(),
   Value: PunkLordActivityPanelRewardValueSchema,
-});
+})
 export type PunkLordActivityPanelRewardClass = z.infer<
   typeof PunkLordActivityPanelRewardClassSchema
->;
+>
 
 export const ActivityConstantPunkLordSchema = z.object({
   PunkLord_Search_Count: PunkLordAutoSupplyMonsterNumClassSchema,
@@ -89,7 +89,7 @@ export const ActivityConstantPunkLordSchema = z.object({
     PunkLordAutoSupplyMonsterNumClassSchema,
   PunkLord_Repaly_Max_Limit: PunkLordAutoSupplyMonsterNumClassSchema,
   PunkLord_AutoSupply_Monster_Num: PunkLordAutoSupplyMonsterNumClassSchema,
-});
+})
 export type ActivityConstantPunkLord = z.infer<
   typeof ActivityConstantPunkLordSchema
->;
+>

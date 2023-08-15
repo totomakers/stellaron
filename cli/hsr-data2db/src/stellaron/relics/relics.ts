@@ -31,7 +31,7 @@ const parseRawData = () => {
 
 const formatRawData = (data: ReturnType<typeof parseRawData>) => {
   const { getText } = useText()
-  const relicDataInfoFlat = Object.values(data.relicDataInfo || {}).flat()
+  const relicDataInfoFlat = Object.values(data.relicDataInfo ?? {}).flat()
 
   const rawRelics = relicDataInfoFlat
     .map((relic) => {
@@ -46,6 +46,7 @@ const formatRawData = (data: ReturnType<typeof parseRawData>) => {
       id: r.RelicName.split('RelicName_')[1],
       relicSetId: `${r.SetID}`,
       type: r.Type,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       name: getText({ Hash: getStableHash(r.RelicName) })!,
     } satisfies Relic
   })

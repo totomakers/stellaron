@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const DescSchema = z.object({
   Hash: z.number(),
-});
-export type Desc = z.infer<typeof DescSchema>;
+})
+export type Desc = z.infer<typeof DescSchema>
 
 export const TreasureDungeonConfigValueSchema = z.object({
   DungeonID: z.number(),
@@ -23,7 +23,7 @@ export const TreasureDungeonConfigValueSchema = z.object({
   PreDungeonID: z.union([z.number(), z.null()]).optional(),
   UnlockID: z.union([z.number(), z.null()]).optional(),
   GridPrefabType: z.union([z.number(), z.null()]).optional(),
-});
+})
 export type TreasureDungeonConfigValue = z.infer<
   typeof TreasureDungeonConfigValueSchema
->;
+>

@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const MapGuideNameSchema = z.object({
   Hash: z.number(),
-});
-export type MapGuideName = z.infer<typeof MapGuideNameSchema>;
+})
+export type MapGuideName = z.infer<typeof MapGuideNameSchema>
 
 export const MapGuideValueSchema = z.object({
   ID: z.number(),
@@ -12,5 +12,5 @@ export const MapGuideValueSchema = z.object({
   SheetID: z.number(),
   SheetType: z.number(),
   MapGuideIconPath: z.string(),
-});
-export type MapGuideValue = z.infer<typeof MapGuideValueSchema>;
+})
+export type MapGuideValue = z.infer<typeof MapGuideValueSchema>

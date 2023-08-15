@@ -1,26 +1,26 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const ParamTypeSchema = z.enum(["GreaterEqual", "Less", "LessEqual"]);
-export type ParamType = z.infer<typeof ParamTypeSchema>;
+export const ParamTypeSchema = z.enum(['GreaterEqual', 'Less', 'LessEqual'])
+export type ParamType = z.infer<typeof ParamTypeSchema>
 
 export const TargetTypeSchema = z.enum([
-  "BattleRoundCount",
-  "ClientCount",
-  "DeadAvatarCount",
-  "KillMonster",
-  "ShieldBreakCount",
-]);
-export type TargetType = z.infer<typeof TargetTypeSchema>;
+  'BattleRoundCount',
+  'ClientCount',
+  'DeadAvatarCount',
+  'KillMonster',
+  'ShieldBreakCount',
+])
+export type TargetType = z.infer<typeof TargetTypeSchema>
 
 export const TargetNameSchema = z.object({
   Hash: z.number(),
-});
-export type TargetName = z.infer<typeof TargetNameSchema>;
+})
+export type TargetName = z.infer<typeof TargetNameSchema>
 
 export const ParamListSchema = z.object({
   Value: z.number(),
-});
-export type ParamList = z.infer<typeof ParamListSchema>;
+})
+export type ParamList = z.infer<typeof ParamListSchema>
 
 export const RaidTargetConfigValueSchema = z.object({
   ID: z.number(),
@@ -36,5 +36,5 @@ export const RaidTargetConfigValueSchema = z.object({
   TargetNameSimple: TargetNameSchema,
   IsInBattle: z.union([z.boolean(), z.null()]).optional(),
   TargetParam2: z.union([z.number(), z.null()]).optional(),
-});
-export type RaidTargetConfigValue = z.infer<typeof RaidTargetConfigValueSchema>;
+})
+export type RaidTargetConfigValue = z.infer<typeof RaidTargetConfigValueSchema>

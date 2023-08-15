@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const AngrySchema = z.object({
   PamMood: z.string(),
@@ -6,8 +6,8 @@ export const AngrySchema = z.object({
   PerformanceID: z.number(),
   EmotionClipPath: z.string(),
   MinMoodPoint: z.union([z.number(), z.null()]).optional(),
-});
-export type Angry = z.infer<typeof AngrySchema>;
+})
+export type Angry = z.infer<typeof AngrySchema>
 
 export const PamMoodSchema = z.object({
   Happy: AngrySchema,
@@ -17,5 +17,5 @@ export const PamMoodSchema = z.object({
   Sad: AngrySchema,
   Confuse: AngrySchema,
   Angry: AngrySchema,
-});
-export type PamMood = z.infer<typeof PamMoodSchema>;
+})
+export type PamMood = z.infer<typeof PamMoodSchema>

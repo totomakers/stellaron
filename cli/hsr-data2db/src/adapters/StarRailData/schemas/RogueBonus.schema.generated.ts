@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const BonusSchema = z.object({
   Hash: z.number(),
-});
-export type Bonus = z.infer<typeof BonusSchema>;
+})
+export type Bonus = z.infer<typeof BonusSchema>
 
 export const RogueBonusValueSchema = z.object({
   BonusID: z.number(),
@@ -12,5 +12,5 @@ export const RogueBonusValueSchema = z.object({
   BonusDesc: BonusSchema,
   BonusTag: BonusSchema,
   BonusIcon: z.string(),
-});
-export type RogueBonusValue = z.infer<typeof RogueBonusValueSchema>;
+})
+export type RogueBonusValue = z.infer<typeof RogueBonusValueSchema>

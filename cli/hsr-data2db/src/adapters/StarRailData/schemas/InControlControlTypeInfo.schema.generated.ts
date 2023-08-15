@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const InControlControlTypeInfoValueSchema = z.object({
   controlType: z.string(),
@@ -6,7 +6,7 @@ export const InControlControlTypeInfoValueSchema = z.object({
   iconForSony: z.string(),
   iconForXBox: z.string(),
   iconForSwitch: z.string(),
-});
+})
 export type InControlControlTypeInfoValue = z.infer<
   typeof InControlControlTypeInfoValueSchema
->;
+>

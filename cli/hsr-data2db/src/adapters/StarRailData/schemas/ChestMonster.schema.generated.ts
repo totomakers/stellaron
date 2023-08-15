@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const ChestMonsterValueSchema = z.object({
   ID: z.number(),
@@ -7,5 +7,5 @@ export const ChestMonsterValueSchema = z.object({
   GroupID: z.number(),
   ConfigID: z.number(),
   EventID: z.number(),
-});
-export type ChestMonsterValue = z.infer<typeof ChestMonsterValueSchema>;
+})
+export type ChestMonsterValue = z.infer<typeof ChestMonsterValueSchema>

@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const CvSchema = z.object({
   Hash: z.number(),
-});
-export type Cv = z.infer<typeof CvSchema>;
+})
+export type Cv = z.infer<typeof CvSchema>
 
 export const AvatarAtlasValueSchema = z.object({
   AvatarID: z.number(),
@@ -13,5 +13,5 @@ export const AvatarAtlasValueSchema = z.object({
   CV_KR: CvSchema,
   CV_EN: CvSchema,
   CampID: z.number(),
-});
-export type AvatarAtlasValue = z.infer<typeof AvatarAtlasValueSchema>;
+})
+export type AvatarAtlasValue = z.infer<typeof AvatarAtlasValueSchema>

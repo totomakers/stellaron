@@ -1,12 +1,12 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const TypeSchema = z.enum(["BattleAddMazeBuff", "ShowGridsAtBegining"]);
-export type Type = z.infer<typeof TypeSchema>;
+export const TypeSchema = z.enum(['BattleAddMazeBuff', 'ShowGridsAtBegining'])
+export type Type = z.infer<typeof TypeSchema>
 
 export const BattleTargetBounsSchema = z.object({
   Hash: z.number(),
-});
-export type BattleTargetBouns = z.infer<typeof BattleTargetBounsSchema>;
+})
+export type BattleTargetBouns = z.infer<typeof BattleTargetBounsSchema>
 
 export const TreasureDungeonBuffValueSchema = z.object({
   BuffID: z.number(),
@@ -24,7 +24,7 @@ export const TreasureDungeonBuffValueSchema = z.object({
   BattleTargetBouns: BattleTargetBounsSchema,
   BattleTargetID: z.union([z.number(), z.null()]).optional(),
   TargetBounsParam: z.union([z.number(), z.null()]).optional(),
-});
+})
 export type TreasureDungeonBuffValue = z.infer<
   typeof TreasureDungeonBuffValueSchema
->;
+>

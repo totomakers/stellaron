@@ -1,35 +1,35 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const CocoonTypeSchema = z.enum([
-  "TYPE_NORMAL",
-  "TYPE_RELIC",
-  "TYPE_WEEK",
-]);
-export type CocoonType = z.infer<typeof CocoonTypeSchema>;
+  'TYPE_NORMAL',
+  'TYPE_RELIC',
+  'TYPE_WEEK',
+])
+export type CocoonType = z.infer<typeof CocoonTypeSchema>
 
 export const DamageTypeSchema = z.enum([
-  "Fire",
-  "Ice",
-  "Imaginary",
-  "Physical",
-  "Quantum",
-  "Thunder",
-  "Wind",
-]);
-export type DamageType = z.infer<typeof DamageTypeSchema>;
+  'Fire',
+  'Ice',
+  'Imaginary',
+  'Physical',
+  'Quantum',
+  'Thunder',
+  'Wind',
+])
+export type DamageType = z.infer<typeof DamageTypeSchema>
 
-export const FarmTypeSchema = z.enum(["COCOON", "COCOON2", "COCOON3", "RELIC"]);
-export type FarmType = z.infer<typeof FarmTypeSchema>;
+export const FarmTypeSchema = z.enum(['COCOON', 'COCOON2', 'COCOON3', 'RELIC'])
+export type FarmType = z.infer<typeof FarmTypeSchema>
 
 export const ParamListSchema = z.object({
   Value: z.number(),
-});
-export type ParamList = z.infer<typeof ParamListSchema>;
+})
+export type ParamList = z.infer<typeof ParamListSchema>
 
 export const BuffDescSchema = z.object({
   Hash: z.number(),
-});
-export type BuffDesc = z.infer<typeof BuffDescSchema>;
+})
+export type BuffDesc = z.infer<typeof BuffDescSchema>
 
 export const CocoonConfigValueSchema = z.object({
   ID: z.number(),
@@ -47,5 +47,5 @@ export const CocoonConfigValueSchema = z.object({
   OpenDate: z.array(z.any()),
   DamageType: z.array(DamageTypeSchema),
   FarmType: FarmTypeSchema,
-});
-export type CocoonConfigValue = z.infer<typeof CocoonConfigValueSchema>;
+})
+export type CocoonConfigValue = z.infer<typeof CocoonConfigValueSchema>

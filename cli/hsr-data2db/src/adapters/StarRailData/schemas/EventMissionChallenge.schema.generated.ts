@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const EventMissionChallengeValueSchema = z.object({
   ID: z.number(),
@@ -6,7 +6,7 @@ export const EventMissionChallengeValueSchema = z.object({
   IsBeginPrepare: z.union([z.boolean(), z.null()]).optional(),
   IsCancellable: z.union([z.boolean(), z.null()]).optional(),
   IsResetable: z.union([z.boolean(), z.null()]).optional(),
-});
+})
 export type EventMissionChallengeValue = z.infer<
   typeof EventMissionChallengeValueSchema
->;
+>

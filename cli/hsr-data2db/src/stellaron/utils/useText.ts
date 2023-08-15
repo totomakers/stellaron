@@ -21,7 +21,7 @@ export const useText = () => {
     hash: { Hash: number },
     locale: keyof typeof data = 'en',
   ) => {
-    const value = data?.[locale]?.[hash.Hash]
+    const value = data[locale]?.[hash.Hash]
 
     if (!value) {
       // console.warn(yellow(`String not found with the hash ${hash.Hash}`))

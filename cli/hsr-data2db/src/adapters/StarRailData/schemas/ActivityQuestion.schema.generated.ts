@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const AnswerSchema = z.object({
   Hash: z.number(),
-});
-export type Answer = z.infer<typeof AnswerSchema>;
+})
+export type Answer = z.infer<typeof AnswerSchema>
 
 export const ActivityQuestionValueSchema = z.object({
   QuestionID: z.number(),
@@ -12,5 +12,5 @@ export const ActivityQuestionValueSchema = z.object({
   Question: AnswerSchema,
   Answer: AnswerSchema,
   ImgPath: z.string(),
-});
-export type ActivityQuestionValue = z.infer<typeof ActivityQuestionValueSchema>;
+})
+export type ActivityQuestionValue = z.infer<typeof ActivityQuestionValueSchema>

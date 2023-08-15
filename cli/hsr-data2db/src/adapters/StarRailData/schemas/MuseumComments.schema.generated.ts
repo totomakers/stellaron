@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const CommentSchema = z.object({
   Hash: z.number(),
-});
-export type Comment = z.infer<typeof CommentSchema>;
+})
+export type Comment = z.infer<typeof CommentSchema>
 
 export const MuseumCommentsValueSchema = z.object({
   CommentID: z.number(),
@@ -12,5 +12,5 @@ export const MuseumCommentsValueSchema = z.object({
   CommentName: CommentSchema,
   CommentContent: CommentSchema,
   CommentIconPath: z.string(),
-});
-export type MuseumCommentsValue = z.infer<typeof MuseumCommentsValueSchema>;
+})
+export type MuseumCommentsValue = z.infer<typeof MuseumCommentsValueSchema>

@@ -34,7 +34,7 @@ const formatRawData = (rawData: ReturnType<typeof parseRawData>) => {
   const { getText } = useText()
 
   const characterTraces = Object.values(
-    rawData.avatarSkillTreeConfig || {},
+    rawData.avatarSkillTreeConfig ?? {},
   ).map((skillTree) => {
     const skillTreeLevels = Object.values(skillTree)
     const firstLevel = skillTreeLevels.at(-1)

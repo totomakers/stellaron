@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const DescriptionSchema = z.object({
   Hash: z.number(),
-});
-export type Description = z.infer<typeof DescriptionSchema>;
+})
+export type Description = z.infer<typeof DescriptionSchema>
 
 export const WheelSelectConfigValueSchema = z.object({
   IndexID: z.number(),
@@ -14,7 +14,7 @@ export const WheelSelectConfigValueSchema = z.object({
   FuncGotoIDList: z.array(z.number()),
   UnlockID: z.number(),
   Order: z.number(),
-});
+})
 export type WheelSelectConfigValue = z.infer<
   typeof WheelSelectConfigValueSchema
->;
+>

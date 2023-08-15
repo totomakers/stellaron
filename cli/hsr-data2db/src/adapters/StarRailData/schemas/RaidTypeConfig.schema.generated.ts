@@ -1,28 +1,28 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const PunkLordSchema = z.object({
   RaidType: z.string(),
   FinishCountDown: z.number(),
-});
-export type PunkLord = z.infer<typeof PunkLordSchema>;
+})
+export type PunkLord = z.infer<typeof PunkLordSchema>
 
 export const MissionSchema = z.object({
   RaidType: z.string(),
   FinishType: z.string(),
-});
-export type Mission = z.infer<typeof MissionSchema>;
+})
+export type Mission = z.infer<typeof MissionSchema>
 
 export const EquilibriumTrialSchema = z.object({
   RaidType: z.string(),
   FinishType: z.string(),
   FinishCountDown: z.number(),
-});
-export type EquilibriumTrial = z.infer<typeof EquilibriumTrialSchema>;
+})
+export type EquilibriumTrial = z.infer<typeof EquilibriumTrialSchema>
 
 export const ChallengeSchema = z.object({
   RaidType: z.string(),
-});
-export type Challenge = z.infer<typeof ChallengeSchema>;
+})
+export type Challenge = z.infer<typeof ChallengeSchema>
 
 export const RaidTypeConfigSchema = z.object({
   Mission: MissionSchema,
@@ -33,5 +33,5 @@ export const RaidTypeConfigSchema = z.object({
   SaveMission: ChallengeSchema,
   Trial: ChallengeSchema,
   EquilibriumTrial: EquilibriumTrialSchema,
-});
-export type RaidTypeConfig = z.infer<typeof RaidTypeConfigSchema>;
+})
+export type RaidTypeConfig = z.infer<typeof RaidTypeConfigSchema>

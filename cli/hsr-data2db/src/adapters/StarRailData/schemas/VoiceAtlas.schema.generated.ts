@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const UnlockDescSchema = z.object({
   Hash: z.number(),
-});
-export type UnlockDesc = z.infer<typeof UnlockDescSchema>;
+})
+export type UnlockDesc = z.infer<typeof UnlockDescSchema>
 
 export const VoiceAtlasValueSchema = z.object({
   AvatarID: z.number(),
@@ -17,5 +17,5 @@ export const VoiceAtlasValueSchema = z.object({
   UnlockDesc: UnlockDescSchema,
   IsBattleVoice: z.union([z.boolean(), z.null()]).optional(),
   Unlock: z.union([z.number(), z.null()]).optional(),
-});
-export type VoiceAtlasValue = z.infer<typeof VoiceAtlasValueSchema>;
+})
+export type VoiceAtlasValue = z.infer<typeof VoiceAtlasValueSchema>

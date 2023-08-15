@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const BoxingClubStageGroupValueSchema = z.object({
   StageGroupID: z.number(),
@@ -7,7 +7,7 @@ export const BoxingClubStageGroupValueSchema = z.object({
   MonsterIDList: z.array(z.number()),
   DisplayEventIDList: z.array(z.number()),
   DisplayIndexList: z.array(z.number()),
-});
+})
 export type BoxingClubStageGroupValue = z.infer<
   typeof BoxingClubStageGroupValueSchema
->;
+>

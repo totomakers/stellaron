@@ -27,7 +27,7 @@ const parseRawData = () => {
 const formatRawData = (rawData: ReturnType<typeof parseRawData>) => {
   const { getText } = useText()
 
-  const characterAbilities = Object.values(rawData.avatarSkillConfig || {})
+  const characterAbilities = Object.values(rawData.avatarSkillConfig ?? {})
     .map((skill) => {
       const skillsLevels = Object.values(skill)
 
@@ -43,7 +43,7 @@ const formatRawData = (rawData: ReturnType<typeof parseRawData>) => {
         type: firstLevel.AttackType ?? null,
       } satisfies CharacterAbility
     })
-    .filter((ca) => ca && ca?.type !== 'MazeNormal')
+    .filter((ca) => ca && ca.type !== 'MazeNormal')
 
   return characterAbilities
 }

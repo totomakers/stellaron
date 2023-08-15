@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const FantasticStoryBuffIdValueSchema = z.object({
   BuffID: z.number(),
@@ -8,7 +8,7 @@ export const FantasticStoryBuffIdValueSchema = z.object({
   ClientShowAvailableTips: z.union([z.boolean(), z.null()]).optional(),
   ActivityModuleID: z.number(),
   MazebuffID: z.number(),
-});
+})
 export type FantasticStoryBuffIdValue = z.infer<
   typeof FantasticStoryBuffIdValueSchema
->;
+>

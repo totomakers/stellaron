@@ -1,16 +1,16 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const LimitTypeDeDescSchema = z.object({
   Hash: z.number(),
-});
-export type LimitTypeDeDesc = z.infer<typeof LimitTypeDeDescSchema>;
+})
+export type LimitTypeDeDesc = z.infer<typeof LimitTypeDeDescSchema>
 
 export const EventMissionSchema = z.object({
   LimitType: z.string(),
   LimitTypeDesc: LimitTypeDeDescSchema,
   LimitTypeDetailDesc: LimitTypeDeDescSchema,
-});
-export type EventMission = z.infer<typeof EventMissionSchema>;
+})
+export type EventMission = z.infer<typeof EventMissionSchema>
 
 export const LimitTypeSchema = z.object({
   Level: EventMissionSchema,
@@ -19,5 +19,5 @@ export const LimitTypeSchema = z.object({
   WorldLevel: EventMissionSchema,
   PreGoods: EventMissionSchema,
   HasNoRefreshGoods: EventMissionSchema,
-});
-export type LimitType = z.infer<typeof LimitTypeSchema>;
+})
+export type LimitType = z.infer<typeof LimitTypeSchema>

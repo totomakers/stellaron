@@ -1,39 +1,39 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const AudioEmotionStateSchema = z.enum(["", "State_Tense"]);
-export type AudioEmotionState = z.infer<typeof AudioEmotionStateSchema>;
+export const AudioEmotionStateSchema = z.enum(['', 'State_Tense'])
+export type AudioEmotionState = z.infer<typeof AudioEmotionStateSchema>
 
-export const OperationSchema = z.enum(["And", "Or"]);
-export type Operation = z.infer<typeof OperationSchema>;
+export const OperationSchema = z.enum(['And', 'Or'])
+export type Operation = z.infer<typeof OperationSchema>
 
 export const BeginParamTypeSchema = z.enum([
-  "Auto",
-  "Manual",
-  "MultiSequence",
-  "MuseumPhaseRenewPointReach",
-  "PlayerLevel",
-  "SequenceNextDay",
-]);
-export type BeginParamType = z.infer<typeof BeginParamTypeSchema>;
+  'Auto',
+  'Manual',
+  'MultiSequence',
+  'MuseumPhaseRenewPointReach',
+  'PlayerLevel',
+  'SequenceNextDay',
+])
+export type BeginParamType = z.infer<typeof BeginParamTypeSchema>
 
 export const MainMissionTypeSchema = z.enum([
-  "Branch",
-  "Companion",
-  "Daily",
-  "Main",
-]);
-export type MainMissionType = z.infer<typeof MainMissionTypeSchema>;
+  'Branch',
+  'Companion',
+  'Daily',
+  'Main',
+])
+export type MainMissionType = z.infer<typeof MainMissionTypeSchema>
 
 export const NameSchema = z.object({
   Hash: z.number(),
-});
-export type Name = z.infer<typeof NameSchema>;
+})
+export type Name = z.infer<typeof NameSchema>
 
 export const ParamSchema = z.object({
   Type: BeginParamTypeSchema,
   Value: z.union([z.number(), z.null()]).optional(),
-});
-export type Param = z.infer<typeof ParamSchema>;
+})
+export type Param = z.infer<typeof ParamSchema>
 
 export const MainMissionValueSchema = z.object({
   MainMissionID: z.number(),
@@ -56,5 +56,5 @@ export const MainMissionValueSchema = z.object({
   IsInRaid: z.union([z.boolean(), z.null()]).optional(),
   MissionSuspend: z.union([z.number(), z.null()]).optional(),
   IsShowRedDot: z.union([z.boolean(), z.null()]).optional(),
-});
-export type MainMissionValue = z.infer<typeof MainMissionValueSchema>;
+})
+export type MainMissionValue = z.infer<typeof MainMissionValueSchema>

@@ -1,13 +1,13 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const RestoreTypeSchema = z.enum(["AutoFinish"]);
-export type RestoreType = z.infer<typeof RestoreTypeSchema>;
+export const RestoreTypeSchema = z.enum(['AutoFinish'])
+export type RestoreType = z.infer<typeof RestoreTypeSchema>
 
 export const TriggerParamSchema = z.object({
   TriggerType: z.string(),
   TriggerParam: z.string(),
-});
-export type TriggerParam = z.infer<typeof TriggerParamSchema>;
+})
+export type TriggerParam = z.infer<typeof TriggerParamSchema>
 
 export const TutorialDataValueSchema = z.object({
   TutorialID: z.number(),
@@ -17,5 +17,5 @@ export const TutorialDataValueSchema = z.object({
   FinishTriggerParams: z.array(TriggerParamSchema),
   RestoreType: z.union([RestoreTypeSchema, z.null()]).optional(),
   CanInterrupt: z.union([z.boolean(), z.null()]).optional(),
-});
-export type TutorialDataValue = z.infer<typeof TutorialDataValueSchema>;
+})
+export type TutorialDataValue = z.infer<typeof TutorialDataValueSchema>

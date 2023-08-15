@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const FreeStyleMotionValueSchema = z.object({
   ID: z.number(),
@@ -8,5 +8,5 @@ export const FreeStyleMotionValueSchema = z.object({
   LoopMotionPath: z.string(),
   StartMotionRibbonPath: z.string(),
   LoopMotionRibbonPath: z.string(),
-});
-export type FreeStyleMotionValue = z.infer<typeof FreeStyleMotionValueSchema>;
+})
+export type FreeStyleMotionValue = z.infer<typeof FreeStyleMotionValueSchema>

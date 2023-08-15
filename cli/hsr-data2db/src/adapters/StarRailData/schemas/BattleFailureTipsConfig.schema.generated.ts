@@ -1,23 +1,23 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const GameModeListSchema = z.enum([
-  "ActivityPunkLord",
-  "Challenge",
-  "ChallengeActivity",
-  "Client",
-  "FarmRelic",
-  "Maze",
-  "Raid",
-  "RogueChallenge",
-  "RogueExplore",
-  "Town",
-]);
-export type GameModeList = z.infer<typeof GameModeListSchema>;
+  'ActivityPunkLord',
+  'Challenge',
+  'ChallengeActivity',
+  'Client',
+  'FarmRelic',
+  'Maze',
+  'Raid',
+  'RogueChallenge',
+  'RogueExplore',
+  'Town',
+])
+export type GameModeList = z.infer<typeof GameModeListSchema>
 
 export const TipContentSchema = z.object({
   Hash: z.number(),
-});
-export type TipContent = z.infer<typeof TipContentSchema>;
+})
+export type TipContent = z.infer<typeof TipContentSchema>
 
 export const BattleFailureTipsConfigValueSchema = z.object({
   BattleFailureTipID: z.number(),
@@ -31,7 +31,7 @@ export const BattleFailureTipsConfigValueSchema = z.object({
   MainMissionUnfinishForce: z.array(z.any()),
   Priority: z.number(),
   Type: z.string(),
-});
+})
 export type BattleFailureTipsConfigValue = z.infer<
   typeof BattleFailureTipsConfigValueSchema
->;
+>

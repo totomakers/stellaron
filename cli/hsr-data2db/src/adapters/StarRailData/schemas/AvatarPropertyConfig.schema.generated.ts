@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const PropertyNameSchema = z.object({
   Hash: z.number(),
-});
-export type PropertyName = z.infer<typeof PropertyNameSchema>;
+})
+export type PropertyName = z.infer<typeof PropertyNameSchema>
 
 export const AvatarPropertyConfigValueSchema = z.object({
   PropertyType: z.string(),
@@ -19,7 +19,7 @@ export const AvatarPropertyConfigValueSchema = z.object({
   SubRelicFilter: z.union([z.number(), z.null()]).optional(),
   PropertyInstructionID: z.union([z.number(), z.null()]).optional(),
   PropertyClassify: z.union([z.number(), z.null()]).optional(),
-});
+})
 export type AvatarPropertyConfigValue = z.infer<
   typeof AvatarPropertyConfigValueSchema
->;
+>

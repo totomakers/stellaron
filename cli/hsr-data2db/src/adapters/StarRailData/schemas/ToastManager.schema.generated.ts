@@ -1,20 +1,20 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const AdventureStatusHintNewSchema = z.object({
   FuncName: z.string(),
   Priority: z.number(),
-});
+})
 export type AdventureStatusHintNew = z.infer<
   typeof AdventureStatusHintNewSchema
->;
+>
 
 export const AchievementLevelUpSchema = z.object({
   FuncName: z.string(),
   Duration: z.number(),
   Priority: z.number(),
   IsinBattle: z.union([z.boolean(), z.null()]).optional(),
-});
-export type AchievementLevelUp = z.infer<typeof AchievementLevelUpSchema>;
+})
+export type AchievementLevelUp = z.infer<typeof AchievementLevelUpSchema>
 
 export const ToastManagerSchema = z.object({
   MissionStart: AdventureStatusHintNewSchema,
@@ -77,5 +77,5 @@ export const ToastManagerSchema = z.object({
   BattleEnvBuffHint: AchievementLevelUpSchema,
   BattleTargetHint: AchievementLevelUpSchema,
   BattleEndConditionHint: AchievementLevelUpSchema,
-});
-export type ToastManager = z.infer<typeof ToastManagerSchema>;
+})
+export type ToastManager = z.infer<typeof ToastManagerSchema>

@@ -1,10 +1,5 @@
 import * as z from 'zod'
 
-export const ParamListSchema = z.object({
-  Value: z.number(),
-})
-export type ParamList = z.infer<typeof ParamListSchema>
-
 export const AnchorSchema = z.enum([
   'Point01',
   'Point02',
@@ -44,6 +39,11 @@ export const PropertyTypeSchema = z.enum([
   'WindAddedRatio',
 ])
 export type PropertyType = z.infer<typeof PropertyTypeSchema>
+
+export const ParamListSchema = z.object({
+  Value: z.number(),
+})
+export type ParamList = z.infer<typeof ParamListSchema>
 
 export const StatusAddListSchema = z.object({
   PropertyType: PropertyTypeSchema,

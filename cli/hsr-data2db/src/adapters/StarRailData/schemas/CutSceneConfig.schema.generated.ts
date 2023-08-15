@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const CutSceneConfigValueSchema = z.object({
   CutSceneName: z.string(),
@@ -13,5 +13,5 @@ export const CutSceneConfigValueSchema = z.object({
   MazeFloorID: z.union([z.number(), z.null()]).optional(),
   HideBlockList: z.array(z.string()),
   IsPlayerInvolved: z.union([z.boolean(), z.null()]).optional(),
-});
-export type CutSceneConfigValue = z.infer<typeof CutSceneConfigValueSchema>;
+})
+export type CutSceneConfigValue = z.infer<typeof CutSceneConfigValueSchema>

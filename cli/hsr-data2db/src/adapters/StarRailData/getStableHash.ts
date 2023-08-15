@@ -5,10 +5,10 @@ export const getStableHash = (str: string) => {
   let hash1 = 5381n
   let hash2 = 5381n
 
-  for (let i = 0; i < str.length && str[i] != undefined; i += 2) {
+  for (let i = 0; i < str.length; i += 2) {
     hash1 = ((hash1 << 5n) + hash1) ^ BigInt(str.charCodeAt(i))
 
-    if (i == str.length - 1 || str[i + 1] == undefined) break
+    if (i == str.length - 1) break
 
     hash2 = ((hash2 << 5n) + hash2) ^ BigInt(str.charCodeAt(i + 1))
   }

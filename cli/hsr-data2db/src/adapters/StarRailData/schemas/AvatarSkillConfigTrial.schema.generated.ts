@@ -1,67 +1,67 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const AttackTypeSchema = z.enum([
-  "BPSkill",
-  "Maze",
-  "MazeNormal",
-  "Normal",
-  "Ultra",
-]);
-export type AttackType = z.infer<typeof AttackTypeSchema>;
+  'BPSkill',
+  'Maze',
+  'MazeNormal',
+  'Normal',
+  'Ultra',
+])
+export type AttackType = z.infer<typeof AttackTypeSchema>
 
 export const SkillEffectSchema = z.enum([
-  "AoEAttack",
-  "Blast",
-  "Enhance",
-  "Impair",
-  "MazeAttack",
-  "SingleAttack",
-  "Support",
-]);
-export type SkillEffect = z.infer<typeof SkillEffectSchema>;
+  'AoEAttack',
+  'Blast',
+  'Enhance',
+  'Impair',
+  'MazeAttack',
+  'SingleAttack',
+  'Support',
+])
+export type SkillEffect = z.infer<typeof SkillEffectSchema>
 
 export const SkillTriggerKeySchema = z.enum([
-  "",
-  "Skill01",
-  "Skill02",
-  "Skill03",
-  "Skill11",
-  "Skill12",
-  "Skill13",
-  "Skill21",
-  "SkillMaze",
-  "SkillP01",
-]);
-export type SkillTriggerKey = z.infer<typeof SkillTriggerKeySchema>;
+  '',
+  'Skill01',
+  'Skill02',
+  'Skill03',
+  'Skill11',
+  'Skill12',
+  'Skill13',
+  'Skill21',
+  'SkillMaze',
+  'SkillP01',
+])
+export type SkillTriggerKey = z.infer<typeof SkillTriggerKeySchema>
 
 export const StanceDamageTypeSchema = z.enum([
-  "Ice",
-  "Imaginary",
-  "Quantum",
-  "Thunder",
-  "Wind",
-]);
-export type StanceDamageType = z.infer<typeof StanceDamageTypeSchema>;
+  'Ice',
+  'Imaginary',
+  'Quantum',
+  'Thunder',
+  'Wind',
+])
+export type StanceDamageType = z.infer<typeof StanceDamageTypeSchema>
 
 export const UltraSkillIconSchema = z.enum([
-  "",
-  "SpriteOutput/SkillIcons/1005/SkillIcon_1005_Ultra_on.png",
-  "SpriteOutput/SkillIcons/1006/SkillIcon_1006_Ultra_on.png",
-  "SpriteOutput/SkillIcons/1205/SkillIcon_1205_Ultra_on.png",
-  "SpriteOutput/SkillIcons/1212/SkillIcon_1212_Ultra_on.png",
-  "SpriteOutput/SkillIcons/1213/SkillIcon_1213_Ultra_on.png",
-]);
-export type UltraSkillIcon = z.infer<typeof UltraSkillIconSchema>;
+  '',
+  'SpriteOutput/SkillIcons/1005/SkillIcon_1005_Ultra_on.png',
+  'SpriteOutput/SkillIcons/1006/SkillIcon_1006_Ultra_on.png',
+  'SpriteOutput/SkillIcons/1205/SkillIcon_1205_Ultra_on.png',
+  'SpriteOutput/SkillIcons/1212/SkillIcon_1212_Ultra_on.png',
+  'SpriteOutput/SkillIcons/1213/SkillIcon_1213_Ultra_on.png',
+])
+export type UltraSkillIcon = z.infer<typeof UltraSkillIconSchema>
 
 export const SimpleSkillDescSchema = z.object({
   Hash: z.number(),
-});
-export type SimpleSkillDesc = z.infer<typeof SimpleSkillDescSchema>;
+})
+export type SimpleSkillDesc = z.infer<typeof SimpleSkillDescSchema>
 
 export const BpNeedSchema = z.object({
   Value: z.number(),
-});
-export type BpNeed = z.infer<typeof BpNeedSchema>;
+})
+export type BpNeed = z.infer<typeof BpNeedSchema>
 
 export const AvatarSkillConfigTrialValueSchema = z.object({
   SkillID: z.number(),
@@ -98,7 +98,7 @@ export const AvatarSkillConfigTrialValueSchema = z.object({
   SkillEffect: SkillEffectSchema,
   SkillComboValueDelta: z.union([BpNeedSchema, z.null()]).optional(),
   SPNeed: z.union([BpNeedSchema, z.null()]).optional(),
-});
+})
 export type AvatarSkillConfigTrialValue = z.infer<
   typeof AvatarSkillConfigTrialValueSchema
->;
+>

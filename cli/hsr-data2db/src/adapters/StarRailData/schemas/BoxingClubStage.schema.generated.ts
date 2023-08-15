@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const BubbleTalkEnemySchema = z.object({
   Hash: z.number(),
-});
-export type BubbleTalkEnemy = z.infer<typeof BubbleTalkEnemySchema>;
+})
+export type BubbleTalkEnemy = z.infer<typeof BubbleTalkEnemySchema>
 
 export const BoxingClubStageValueSchema = z.object({
   EventID: z.number(),
@@ -12,5 +12,5 @@ export const BoxingClubStageValueSchema = z.object({
   BubbleTalkPlayer: BubbleTalkEnemySchema,
   BubbleTalkEnemy: BubbleTalkEnemySchema,
   MonsterWaveIndex: z.union([z.number(), z.null()]).optional(),
-});
-export type BoxingClubStageValue = z.infer<typeof BoxingClubStageValueSchema>;
+})
+export type BoxingClubStageValue = z.infer<typeof BoxingClubStageValueSchema>

@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const MuseumAreaValueSchema = z.object({
   AreaID: z.number(),
@@ -9,5 +9,5 @@ export const MuseumAreaValueSchema = z.object({
   RequireStatsA: z.number(),
   RequireStatsB: z.number(),
   RequireStatsC: z.number(),
-});
-export type MuseumAreaValue = z.infer<typeof MuseumAreaValueSchema>;
+})
+export type MuseumAreaValue = z.infer<typeof MuseumAreaValueSchema>

@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const ShortDescSchema = z.object({
   Hash: z.number(),
-});
-export type ShortDesc = z.infer<typeof ShortDescSchema>;
+})
+export type ShortDesc = z.infer<typeof ShortDescSchema>
 
 export const ActivityBannerComMissionValueSchema = z.object({
   BannerID: z.number(),
@@ -19,7 +19,7 @@ export const ActivityBannerComMissionValueSchema = z.object({
   SubImagePath: z.string(),
   ActivityModuleID: z.number(),
   MessageID: z.union([z.number(), z.null()]).optional(),
-});
+})
 export type ActivityBannerComMissionValue = z.infer<
   typeof ActivityBannerComMissionValueSchema
->;
+>

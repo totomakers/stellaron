@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const BoxingClubPerformanceValueSchema = z.object({
   ID: z.number(),
@@ -8,7 +8,7 @@ export const BoxingClubPerformanceValueSchema = z.object({
   MonsterTemplateID: z.number(),
   BubbleTalkPlayer: z.string(),
   BubbleTalkEnemy: z.string(),
-});
+})
 export type BoxingClubPerformanceValue = z.infer<
   typeof BoxingClubPerformanceValueSchema
->;
+>

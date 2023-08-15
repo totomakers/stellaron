@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const NormalSchema = z.object({
   Rarity: z.string(),
@@ -10,8 +10,8 @@ export const NormalSchema = z.object({
   FrameItemRarityColor: z.string(),
   LineItemRarityColor: z.string(),
   ItemRarityStarImgPath: z.string(),
-});
-export type Normal = z.infer<typeof NormalSchema>;
+})
+export type Normal = z.infer<typeof NormalSchema>
 
 export const ItemRarityConfigSchema = z.object({
   Normal: NormalSchema,
@@ -19,5 +19,5 @@ export const ItemRarityConfigSchema = z.object({
   Rare: NormalSchema,
   VeryRare: NormalSchema,
   SuperRare: NormalSchema,
-});
-export type ItemRarityConfig = z.infer<typeof ItemRarityConfigSchema>;
+})
+export type ItemRarityConfig = z.infer<typeof ItemRarityConfigSchema>

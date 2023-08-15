@@ -1,22 +1,22 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const CustomSkillTreeKeySchema = z.enum([
-  "MaxWithInLevel",
-  "None",
-  "W0_Standard_20-30",
-  "W1_Standard_30-40",
-  "W2_Standard_40-50",
-  "W3_Standard_50-60",
-  "W4_Standard_60-70",
-  "W5_Standard_70-80",
-]);
-export type CustomSkillTreeKey = z.infer<typeof CustomSkillTreeKeySchema>;
+  'MaxWithInLevel',
+  'None',
+  'W0_Standard_20-30',
+  'W1_Standard_30-40',
+  'W2_Standard_40-50',
+  'W3_Standard_50-60',
+  'W4_Standard_60-70',
+  'W5_Standard_70-80',
+])
+export type CustomSkillTreeKey = z.infer<typeof CustomSkillTreeKeySchema>
 
-export const SkillTreeTemplateSchema = z.enum(["TYPE_CUSTOM"]);
-export type SkillTreeTemplate = z.infer<typeof SkillTreeTemplateSchema>;
+export const SkillTreeTemplateSchema = z.enum(['TYPE_CUSTOM'])
+export type SkillTreeTemplate = z.infer<typeof SkillTreeTemplateSchema>
 
-export const TypeSchema = z.enum(["TYPE_PLOT", "TYPE_TRIAL"]);
-export type Type = z.infer<typeof TypeSchema>;
+export const TypeSchema = z.enum(['TYPE_PLOT', 'TYPE_TRIAL'])
+export type Type = z.infer<typeof TypeSchema>
 
 export const SpecialAvatarValueSchema = z.object({
   SpecialAvatarID: z.number(),
@@ -50,5 +50,5 @@ export const SpecialAvatarValueSchema = z.object({
   HasLeaveHint: z.union([z.boolean(), z.null()]).optional(),
   IsAutoBattle: z.union([z.boolean(), z.null()]).optional(),
   IsProtected: z.union([z.boolean(), z.null()]).optional(),
-});
-export type SpecialAvatarValue = z.infer<typeof SpecialAvatarValueSchema>;
+})
+export type SpecialAvatarValue = z.infer<typeof SpecialAvatarValueSchema>

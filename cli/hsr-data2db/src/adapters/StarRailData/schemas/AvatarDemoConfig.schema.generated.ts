@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const AvatarDemoSchema = z.object({
   Hash: z.number(),
-});
-export type AvatarDemo = z.infer<typeof AvatarDemoSchema>;
+})
+export type AvatarDemo = z.infer<typeof AvatarDemoSchema>
 
 export const AvatarDemoConfigValueSchema = z.object({
   StageID: z.number(),
@@ -31,5 +31,5 @@ export const AvatarDemoConfigValueSchema = z.object({
   NpcMonsterIDList1: z.array(z.number()),
   EventIDList1: z.array(z.number()),
   RandomSeed: z.union([z.number(), z.null()]).optional(),
-});
-export type AvatarDemoConfigValue = z.infer<typeof AvatarDemoConfigValueSchema>;
+})
+export type AvatarDemoConfigValue = z.infer<typeof AvatarDemoConfigValueSchema>

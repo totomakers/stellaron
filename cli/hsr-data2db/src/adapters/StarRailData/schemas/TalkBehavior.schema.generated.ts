@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const TalkBehaviorValueSchema = z.object({
   ID: z.number(),
@@ -8,5 +8,5 @@ export const TalkBehaviorValueSchema = z.object({
   ParaList: z.array(z.number()),
   CurrencyItem: z.number(),
   CustomString: z.string(),
-});
-export type TalkBehaviorValue = z.infer<typeof TalkBehaviorValueSchema>;
+})
+export type TalkBehaviorValue = z.infer<typeof TalkBehaviorValueSchema>

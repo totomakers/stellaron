@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const SpecialModeValueSchema = z.object({
   SpecialModeID: z.number(),
@@ -8,5 +8,5 @@ export const SpecialModeValueSchema = z.object({
   Desc03: z.string(),
   IsUImode: z.union([z.boolean(), z.null()]).optional(),
   PuzzleType: z.union([z.number(), z.null()]).optional(),
-});
-export type SpecialModeValue = z.infer<typeof SpecialModeValueSchema>;
+})
+export type SpecialModeValue = z.infer<typeof SpecialModeValueSchema>

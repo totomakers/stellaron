@@ -1,31 +1,31 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const AiPathSchema = z.enum([
-  "Config/ConfigAI/Avatar_ComplexSkilll_AutoFight_AI.json",
-]);
-export type AiPath = z.infer<typeof AiPathSchema>;
+  'Config/ConfigAI/Avatar_ComplexSkilll_AutoFight_AI.json',
+])
+export type AiPath = z.infer<typeof AiPathSchema>
 
 export const RaritySchema = z.enum([
-  "CombatPowerAvatarRarityType4",
-  "CombatPowerAvatarRarityType5",
-]);
-export type Rarity = z.infer<typeof RaritySchema>;
+  'CombatPowerAvatarRarityType4',
+  'CombatPowerAvatarRarityType5',
+])
+export type Rarity = z.infer<typeof RaritySchema>
 
 export const SpNeedSchema = z.object({
   Value: z.number(),
-});
-export type SpNeed = z.infer<typeof SpNeedSchema>;
+})
+export type SpNeed = z.infer<typeof SpNeedSchema>
 
 export const RewardListSchema = z.object({
   ItemID: z.number(),
   ItemNum: z.number(),
-});
-export type RewardList = z.infer<typeof RewardListSchema>;
+})
+export type RewardList = z.infer<typeof RewardListSchema>
 
 export const AvatarSchema = z.object({
   Hash: z.number(),
-});
-export type Avatar = z.infer<typeof AvatarSchema>;
+})
+export type Avatar = z.infer<typeof AvatarSchema>
 
 export const AvatarConfigValueSchema = z.object({
   AvatarID: z.number(),
@@ -71,5 +71,5 @@ export const AvatarConfigValueSchema = z.object({
   AssistOffset: z.array(z.number()),
   AssistBgOffset: z.array(z.number()),
   AvatarSelfShowOffset: z.array(z.number()),
-});
-export type AvatarConfigValue = z.infer<typeof AvatarConfigValueSchema>;
+})
+export type AvatarConfigValue = z.infer<typeof AvatarConfigValueSchema>

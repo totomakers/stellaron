@@ -11,7 +11,7 @@ import { STAR_RAIL_DATA_DIR } from './config'
 
 const getAllFiles = () => {
   const crawler = new fdir().normalize().glob('./**/*.json')
-  const results = crawler.crawl('./temp/StairRailData/ExcelOutput')
+  const results = crawler.crawl(path.join(STAR_RAIL_DATA_DIR, '/ExcelOutput'))
 
   return results.sync()
 }
@@ -43,9 +43,9 @@ const generateSchema = async (filePath: string) => {
 }
 
 export const generateAllSchemas = async () => {
-  // fsExtra.emptyDirSync(DEST_SCHEMA_FOLDER)
-
   const allFiles = getAllFiles()
+
+  console.log(`Find ${allFiles.length} files`)
 
   return Promise.all(
     allFiles.map(async (f) => {

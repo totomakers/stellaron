@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const TargetNameSchema = z.object({
   Hash: z.number(),
-});
-export type TargetName = z.infer<typeof TargetNameSchema>;
+})
+export type TargetName = z.infer<typeof TargetNameSchema>
 
 export const BattleTargetConfigValueSchema = z.object({
   ID: z.number(),
@@ -14,7 +14,7 @@ export const BattleTargetConfigValueSchema = z.object({
   IsFixableHeight: z.boolean(),
   TargetName: TargetNameSchema,
   TargetNameSimple: TargetNameSchema,
-});
+})
 export type BattleTargetConfigValue = z.infer<
   typeof BattleTargetConfigValueSchema
->;
+>

@@ -1,27 +1,27 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const EventSubTypeSchema = z.enum([
-  "AssistEvent",
-  "ChallengerEvent",
-  "EnterStage",
-  "Item",
-  "TurnPrompt",
-]);
-export type EventSubType = z.infer<typeof EventSubTypeSchema>;
+  'AssistEvent',
+  'ChallengerEvent',
+  'EnterStage',
+  'Item',
+  'TurnPrompt',
+])
+export type EventSubType = z.infer<typeof EventSubTypeSchema>
 
-export const TeamSchema = z.enum(["TeamDark", "TeamLight", "TeamNeutral"]);
-export type Team = z.infer<typeof TeamSchema>;
+export const TeamSchema = z.enum(['TeamDark', 'TeamLight', 'TeamNeutral'])
+export type Team = z.infer<typeof TeamSchema>
 
 export const ParamListSchema = z.object({
   Value: z.number(),
-});
-export type ParamList = z.infer<typeof ParamListSchema>;
+})
+export type ParamList = z.infer<typeof ParamListSchema>
 
 export const OverridePropertySchema = z.object({
   PropertyType: z.string(),
   Value: z.union([ParamListSchema, z.null()]).optional(),
-});
-export type OverrideProperty = z.infer<typeof OverridePropertySchema>;
+})
+export type OverrideProperty = z.infer<typeof OverridePropertySchema>
 
 export const BattleEventConfigValueSchema = z.object({
   BattleEventID: z.number(),
@@ -37,7 +37,7 @@ export const BattleEventConfigValueSchema = z.object({
   ParamList: z.array(ParamListSchema),
   AssetPackName: z.string(),
   EliteGroup: z.union([z.boolean(), z.null()]).optional(),
-});
+})
 export type BattleEventConfigValue = z.infer<
   typeof BattleEventConfigValueSchema
->;
+>

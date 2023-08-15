@@ -26,9 +26,10 @@ const parseRawData = () => {
 const formatRawData = (data: ReturnType<typeof parseRawData>) => {
   const { getText } = useText()
 
-  const lightCones = Object.values(data.equipmentConfig || {}).map((c) => {
+  const lightCones = Object.values(data.equipmentConfig ?? {}).map((c) => {
     return {
       id: `${c.EquipmentID}`,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       name: getText(c.EquipmentName)!,
       path: c.AvatarBaseType,
       rarity: c.Rarity,

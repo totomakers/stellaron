@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const MazeBuffRaritySchema = z.object({});
-export type MazeBuffRarity = z.infer<typeof MazeBuffRaritySchema>;
+export const MazeBuffRaritySchema = z.object({})
+export type MazeBuffRarity = z.infer<typeof MazeBuffRaritySchema>

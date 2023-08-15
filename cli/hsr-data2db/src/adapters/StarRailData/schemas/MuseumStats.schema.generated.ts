@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const MuseumStatSchema = z.object({
   Level: z.number(),
@@ -7,5 +7,5 @@ export const MuseumStatSchema = z.object({
   PhaseLimit: z.number(),
   FundCost: z.union([z.number(), z.null()]).optional(),
   StatsValue: z.number(),
-});
-export type MuseumStat = z.infer<typeof MuseumStatSchema>;
+})
+export type MuseumStat = z.infer<typeof MuseumStatSchema>

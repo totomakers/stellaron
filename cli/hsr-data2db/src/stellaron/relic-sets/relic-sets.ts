@@ -36,19 +36,21 @@ const parseRawData = () => {
 const formatRawData = (data: ReturnType<typeof parseRawData>) => {
   const { getText } = useText()
 
-  const relicSets = Object.values(data.relicSetConfig || {}).map((c) => {
+  const relicSets = Object.values(data.relicSetConfig ?? {}).map((c) => {
     return {
       id: `${c.SetID}`,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       name: getText(c.SetName)!,
     } satisfies RelicSet
   })
 
-  const relicSetEffects = Object.values(data.relicSetSkillConfig || {})
+  const relicSetEffects = Object.values(data.relicSetSkillConfig ?? {})
     .map((o) => Object.values(o))
     .flat()
     .map((r) => {
       return {
         id: `${r.SetID}${r.RequireNum}`,
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         desc: getText({ Hash: getStableHash(r.SkillDesc) })!,
         relicSetId: `${r.SetID}`,
         requiredNum: r.RequireNum,

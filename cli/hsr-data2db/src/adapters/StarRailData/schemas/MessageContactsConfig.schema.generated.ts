@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const NameSchema = z.object({
   Hash: z.number(),
-});
-export type Name = z.infer<typeof NameSchema>;
+})
+export type Name = z.infer<typeof NameSchema>
 
 export const MessageContactsConfigValueSchema = z.object({
   ID: z.number(),
@@ -12,7 +12,7 @@ export const MessageContactsConfigValueSchema = z.object({
   SignatureText: NameSchema,
   ContactsType: z.union([z.number(), z.null()]).optional(),
   ContactsCamp: z.union([z.number(), z.null()]).optional(),
-});
+})
 export type MessageContactsConfigValue = z.infer<
   typeof MessageContactsConfigValueSchema
->;
+>

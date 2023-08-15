@@ -1,14 +1,14 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const DisplayItemListSchema = z.object({
   ItemID: z.number(),
-});
-export type DisplayItemList = z.infer<typeof DisplayItemListSchema>;
+})
+export type DisplayItemList = z.infer<typeof DisplayItemListSchema>
 
 export const AssignDescSchema = z.object({
   Hash: z.number(),
-});
-export type AssignDesc = z.infer<typeof AssignDescSchema>;
+})
+export type AssignDesc = z.infer<typeof AssignDescSchema>
 
 export const ExpeditionDataValueSchema = z.object({
   ExpeditionID: z.number(),
@@ -22,5 +22,5 @@ export const ExpeditionDataValueSchema = z.object({
   UnlockMission: z.number(),
   BonusDamageTypeList: z.array(z.string()),
   BonusBaseTypeList: z.array(z.string()),
-});
-export type ExpeditionDataValue = z.infer<typeof ExpeditionDataValueSchema>;
+})
+export type ExpeditionDataValue = z.infer<typeof ExpeditionDataValueSchema>

@@ -1,12 +1,12 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const EllipsisSchema = z.enum(["…"]);
-export type Ellipsis = z.infer<typeof EllipsisSchema>;
+export const EllipsisSchema = z.enum(['…'])
+export type Ellipsis = z.infer<typeof EllipsisSchema>
 
 export const ShowStringSchema = z.object({
   Hash: z.number(),
-});
-export type ShowString = z.infer<typeof ShowStringSchema>;
+})
+export type ShowString = z.infer<typeof ShowStringSchema>
 
 export const ChtSchema = z.object({
   TextLanguageKey: z.string(),
@@ -25,8 +25,8 @@ export const ChtSchema = z.object({
   Ellipsis: EllipsisSchema,
   NoWrap: z.boolean(),
   FontGrowSize: z.union([z.number(), z.null()]).optional(),
-});
-export type Cht = z.infer<typeof ChtSchema>;
+})
+export type Cht = z.infer<typeof ChtSchema>
 
 export const AllowedTextLanguageSchema = z.object({
   cn: ChtSchema,
@@ -42,5 +42,5 @@ export const AllowedTextLanguageSchema = z.object({
   fr: ChtSchema,
   de: ChtSchema,
   pt: ChtSchema,
-});
-export type AllowedTextLanguage = z.infer<typeof AllowedTextLanguageSchema>;
+})
+export type AllowedTextLanguage = z.infer<typeof AllowedTextLanguageSchema>

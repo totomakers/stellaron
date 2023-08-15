@@ -1,16 +1,16 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const BaseTypeTextSchema = z.object({
   Hash: z.number(),
-});
-export type BaseTypeText = z.infer<typeof BaseTypeTextSchema>;
+})
+export type BaseTypeText = z.infer<typeof BaseTypeTextSchema>
 
 export const BodySchema = z.object({
   Type: z.string(),
   BaseTypeText: BaseTypeTextSchema,
   BaseTypeIconPath: z.string(),
-});
-export type Body = z.infer<typeof BodySchema>;
+})
+export type Body = z.infer<typeof BodySchema>
 
 export const RelicBaseTypeSchema = z.object({
   HEAD: BodySchema,
@@ -20,5 +20,5 @@ export const RelicBaseTypeSchema = z.object({
   NECK: BodySchema,
   OBJECT: BodySchema,
   Unknow: BodySchema,
-});
-export type RelicBaseType = z.infer<typeof RelicBaseTypeSchema>;
+})
+export type RelicBaseType = z.infer<typeof RelicBaseTypeSchema>

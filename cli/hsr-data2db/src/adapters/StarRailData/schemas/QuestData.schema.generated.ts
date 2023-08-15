@@ -1,17 +1,17 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const UnlockTypeSchema = z.enum([
-  "AutoUnlock",
-  "FinishMission",
-  "FinishQuest",
-  "ManualUnlock",
-]);
-export type UnlockType = z.infer<typeof UnlockTypeSchema>;
+  'AutoUnlock',
+  'FinishMission',
+  'FinishQuest',
+  'ManualUnlock',
+])
+export type UnlockType = z.infer<typeof UnlockTypeSchema>
 
 export const QuestSchema = z.object({
   Hash: z.number(),
-});
-export type Quest = z.infer<typeof QuestSchema>;
+})
+export type Quest = z.infer<typeof QuestSchema>
 
 export const QuestDatumSchema = z.object({
   QuestID: z.number(),
@@ -24,5 +24,5 @@ export const QuestDatumSchema = z.object({
   RewardID: z.number(),
   FinishWayID: z.number(),
   GotoID: z.union([z.number(), z.null()]).optional(),
-});
-export type QuestDatum = z.infer<typeof QuestDatumSchema>;
+})
+export type QuestDatum = z.infer<typeof QuestDatumSchema>

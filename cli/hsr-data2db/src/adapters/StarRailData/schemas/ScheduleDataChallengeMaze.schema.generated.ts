@@ -1,10 +1,10 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const ScheduleDataChallengeMazeValueSchema = z.object({
   ID: z.number(),
-  BeginTime: z.string(),
-  EndTime: z.string(),
-});
+  BeginTime: z.coerce.date(),
+  EndTime: z.coerce.date(),
+})
 export type ScheduleDataChallengeMazeValue = z.infer<
   typeof ScheduleDataChallengeMazeValueSchema
->;
+>

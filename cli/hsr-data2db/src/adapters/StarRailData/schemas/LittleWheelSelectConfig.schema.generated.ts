@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const LittleWheelSelectConfigValueSchema = z.object({
   GameMode: z.string(),
@@ -10,7 +10,7 @@ export const LittleWheelSelectConfigValueSchema = z.object({
   Right2: z.array(z.any()),
   Right3: z.array(z.any()),
   Right4: z.array(z.any()),
-});
+})
 export type LittleWheelSelectConfigValue = z.infer<
   typeof LittleWheelSelectConfigValueSchema
->;
+>

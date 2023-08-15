@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const ChallengeTipSchema = z.object({
   Hash: z.number(),
-});
-export type ChallengeTip = z.infer<typeof ChallengeTipSchema>;
+})
+export type ChallengeTip = z.infer<typeof ChallengeTipSchema>
 
 export const BoxingClubChallengeValueSchema = z.object({
   ChallengeID: z.number(),
@@ -20,7 +20,7 @@ export const BoxingClubChallengeValueSchema = z.object({
   SpecialAvatarActivityModule: z.number(),
   PreChallengeID: z.union([z.number(), z.null()]).optional(),
   IsSpecialChallenge: z.union([z.boolean(), z.null()]).optional(),
-});
+})
 export type BoxingClubChallengeValue = z.infer<
   typeof BoxingClubChallengeValueSchema
->;
+>

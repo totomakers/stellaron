@@ -1,7 +1,7 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const BattlePassQuestValueSchema = z.object({
   ID: z.number(),
   ShowTime: z.boolean(),
-});
-export type BattlePassQuestValue = z.infer<typeof BattlePassQuestValueSchema>;
+})
+export type BattlePassQuestValue = z.infer<typeof BattlePassQuestValueSchema>

@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const TalkRewardValueSchema = z.object({
   ID: z.number(),
@@ -8,5 +8,5 @@ export const TalkRewardValueSchema = z.object({
   NPCConfigID: z.number(),
   RewardID: z.number(),
   VerificationID: z.number(),
-});
-export type TalkRewardValue = z.infer<typeof TalkRewardValueSchema>;
+})
+export type TalkRewardValue = z.infer<typeof TalkRewardValueSchema>

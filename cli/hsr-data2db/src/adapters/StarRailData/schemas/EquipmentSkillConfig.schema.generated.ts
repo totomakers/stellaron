@@ -1,35 +1,35 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const PropertyTypeSchema = z.enum([
-  "AllDamageTypeAddedRatio",
-  "AttackAddedRatio",
-  "BreakDamageAddedRatioBase",
-  "CriticalChanceBase",
-  "CriticalDamageBase",
-  "DefenceAddedRatio",
-  "HealRatioBase",
-  "HPAddedRatio",
-  "SPRatioBase",
-  "StatusProbabilityBase",
-  "StatusResistanceBase",
-]);
-export type PropertyType = z.infer<typeof PropertyTypeSchema>;
+  'AllDamageTypeAddedRatio',
+  'AttackAddedRatio',
+  'BreakDamageAddedRatioBase',
+  'CriticalChanceBase',
+  'CriticalDamageBase',
+  'DefenceAddedRatio',
+  'HealRatioBase',
+  'HPAddedRatio',
+  'SPRatioBase',
+  'StatusProbabilityBase',
+  'StatusResistanceBase',
+])
+export type PropertyType = z.infer<typeof PropertyTypeSchema>
 
 export const SkillSchema = z.object({
   Hash: z.number(),
-});
-export type Skill = z.infer<typeof SkillSchema>;
+})
+export type Skill = z.infer<typeof SkillSchema>
 
 export const ParamListSchema = z.object({
   Value: z.number(),
-});
-export type ParamList = z.infer<typeof ParamListSchema>;
+})
+export type ParamList = z.infer<typeof ParamListSchema>
 
 export const AbilityPropertySchema = z.object({
   PropertyType: PropertyTypeSchema,
   Value: ParamListSchema,
-});
-export type AbilityProperty = z.infer<typeof AbilityPropertySchema>;
+})
+export type AbilityProperty = z.infer<typeof AbilityPropertySchema>
 
 export const EquipmentSkillConfigValueSchema = z.object({
   SkillID: z.number(),
@@ -39,7 +39,7 @@ export const EquipmentSkillConfigValueSchema = z.object({
   AbilityName: z.string(),
   ParamList: z.array(ParamListSchema),
   AbilityProperty: z.array(AbilityPropertySchema),
-});
+})
 export type EquipmentSkillConfigValue = z.infer<
   typeof EquipmentSkillConfigValueSchema
->;
+>

@@ -1,15 +1,15 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const ItemTypeSchema = z.enum(["AvatarCard"]);
-export type ItemType = z.infer<typeof ItemTypeSchema>;
+export const ItemTypeSchema = z.enum(['AvatarCard'])
+export type ItemType = z.infer<typeof ItemTypeSchema>
 
-export const RaritySchema = z.enum(["SuperRare", "VeryRare"]);
-export type Rarity = z.infer<typeof RaritySchema>;
+export const RaritySchema = z.enum(['SuperRare', 'VeryRare'])
+export type Rarity = z.infer<typeof RaritySchema>
 
 export const ItemSchema = z.object({
   Hash: z.number(),
-});
-export type Item = z.infer<typeof ItemSchema>;
+})
+export type Item = z.infer<typeof ItemSchema>
 
 export const ItemConfigAvatarValueSchema = z.object({
   ID: z.number(),
@@ -27,5 +27,5 @@ export const ItemConfigAvatarValueSchema = z.object({
   PileLimit: z.number(),
   CustomDataList: z.array(z.any()),
   ReturnItemIDList: z.array(z.any()),
-});
-export type ItemConfigAvatarValue = z.infer<typeof ItemConfigAvatarValueSchema>;
+})
+export type ItemConfigAvatarValue = z.infer<typeof ItemConfigAvatarValueSchema>

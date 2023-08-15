@@ -1,20 +1,20 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const DamageTypeSchema = z.enum([
-  "Fire",
-  "Ice",
-  "Imaginary",
-  "Physical",
-  "Quantum",
-  "Thunder",
-  "Wind",
-]);
-export type DamageType = z.infer<typeof DamageTypeSchema>;
+  'Fire',
+  'Ice',
+  'Imaginary',
+  'Physical',
+  'Quantum',
+  'Thunder',
+  'Wind',
+])
+export type DamageType = z.infer<typeof DamageTypeSchema>
 
 export const NameSchema = z.object({
   Hash: z.number(),
-});
-export type Name = z.infer<typeof NameSchema>;
+})
+export type Name = z.infer<typeof NameSchema>
 
 export const ChallengeMazeConfigValueSchema = z.object({
   ID: z.number(),
@@ -40,7 +40,7 @@ export const ChallengeMazeConfigValueSchema = z.object({
   MazeBuffID: z.number(),
   PreChallengeMazeID: z.union([z.number(), z.null()]).optional(),
   MazeGroupID2: z.union([z.number(), z.null()]).optional(),
-});
+})
 export type ChallengeMazeConfigValue = z.infer<
   typeof ChallengeMazeConfigValueSchema
->;
+>

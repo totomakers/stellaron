@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const DialogueSchema = z.object({
   Hash: z.number(),
-});
-export type Dialogue = z.infer<typeof DialogueSchema>;
+})
+export type Dialogue = z.infer<typeof DialogueSchema>
 
 export const TreasureDungeonAvatarValueSchema = z.object({
   AvatarPickID: z.number(),
@@ -13,7 +13,7 @@ export const TreasureDungeonAvatarValueSchema = z.object({
   Dialogue3: DialogueSchema,
   FigureDiff: z.array(z.number()),
   FigureScale: z.number(),
-});
+})
 export type TreasureDungeonAvatarValue = z.infer<
   typeof TreasureDungeonAvatarValueSchema
->;
+>

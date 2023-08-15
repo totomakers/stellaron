@@ -1,23 +1,18 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const CharacterTypeSchema = z.enum(["NPCMonster"]);
-export type CharacterType = z.infer<typeof CharacterTypeSchema>;
+export const CharacterTypeSchema = z.enum(['NPCMonster'])
+export type CharacterType = z.infer<typeof CharacterTypeSchema>
 
-export const RankSchema = z.enum([
-  "Elite",
-  "LittleBoss",
-  "Minion",
-  "MinionLv2",
-]);
-export type Rank = z.infer<typeof RankSchema>;
+export const RankSchema = z.enum(['Elite', 'LittleBoss', 'Minion', 'MinionLv2'])
+export type Rank = z.infer<typeof RankSchema>
 
-export const SubTypeSchema = z.enum(["Monster"]);
-export type SubType = z.infer<typeof SubTypeSchema>;
+export const SubTypeSchema = z.enum(['Monster'])
+export type SubType = z.infer<typeof SubTypeSchema>
 
 export const NpcSchema = z.object({
   Hash: z.number(),
-});
-export type Npc = z.infer<typeof NpcSchema>;
+})
+export type Npc = z.infer<typeof NpcSchema>
 
 export const NpcMonsterDataValueSchema = z.object({
   ID: z.number(),
@@ -35,5 +30,5 @@ export const NpcMonsterDataValueSchema = z.object({
   IsMazeLink: z.boolean(),
   PrototypeID: z.number(),
   MappingInfoID: z.union([z.number(), z.null()]).optional(),
-});
-export type NpcMonsterDataValue = z.infer<typeof NpcMonsterDataValueSchema>;
+})
+export type NpcMonsterDataValue = z.infer<typeof NpcMonsterDataValueSchema>

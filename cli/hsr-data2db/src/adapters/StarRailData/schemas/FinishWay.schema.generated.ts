@@ -1,14 +1,14 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const ParamTypeSchema = z.enum([
-  "Equal",
-  "GreaterEqual",
-  "IntContainListContain",
-  "LessEqual",
-  "ListContain",
-  "NoPara",
-]);
-export type ParamType = z.infer<typeof ParamTypeSchema>;
+  'Equal',
+  'GreaterEqual',
+  'IntContainListContain',
+  'LessEqual',
+  'ListContain',
+  'NoPara',
+])
+export type ParamType = z.infer<typeof ParamTypeSchema>
 
 export const FinishWayValueSchema = z.object({
   ID: z.number(),
@@ -24,5 +24,5 @@ export const FinishWayValueSchema = z.object({
   ParamInt3: z.union([z.number(), z.null()]).optional(),
   MazePlaneID: z.union([z.number(), z.null()]).optional(),
   MazeFloorID: z.union([z.number(), z.null()]).optional(),
-});
-export type FinishWayValue = z.infer<typeof FinishWayValueSchema>;
+})
+export type FinishWayValue = z.infer<typeof FinishWayValueSchema>

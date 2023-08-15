@@ -1,7 +1,7 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const RewardTypeSchema = z.enum(["Event", "Staff"]);
-export type RewardType = z.infer<typeof RewardTypeSchema>;
+export const RewardTypeSchema = z.enum(['Event', 'Staff'])
+export type RewardType = z.infer<typeof RewardTypeSchema>
 
 export const MuseumTargetValueSchema = z.object({
   TargetID: z.number(),
@@ -11,5 +11,5 @@ export const MuseumTargetValueSchema = z.object({
   TriggerPhase: z.number(),
   RewardType: RewardTypeSchema,
   TypeParameter: z.number(),
-});
-export type MuseumTargetValue = z.infer<typeof MuseumTargetValueSchema>;
+})
+export type MuseumTargetValue = z.infer<typeof MuseumTargetValueSchema>

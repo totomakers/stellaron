@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const The1Schema = z.object({
   PlayerReturnID: z.number(),
@@ -13,10 +13,10 @@ export const The1Schema = z.object({
   ValidityPeriod: z.number(),
   DailyDoubleTime: z.number(),
   TotalDoubleTime: z.number(),
-});
-export type The1 = z.infer<typeof The1Schema>;
+})
+export type The1 = z.infer<typeof The1Schema>
 
 export const PlayerReturnConfigSchema = z.object({
-  "1": The1Schema,
-});
-export type PlayerReturnConfig = z.infer<typeof PlayerReturnConfigSchema>;
+  '1': The1Schema,
+})
+export type PlayerReturnConfig = z.infer<typeof PlayerReturnConfigSchema>

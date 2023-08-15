@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const BookContextSchema = z.object({
   Hash: z.number(),
-});
-export type BookContext = z.infer<typeof BookContextSchema>;
+})
+export type BookContext = z.infer<typeof BookContextSchema>
 
 export const FantasticStoryBattleIdValueSchema = z.object({
   BattleID: z.number(),
@@ -29,7 +29,7 @@ export const FantasticStoryBattleIdValueSchema = z.object({
   BookTitle: BookContextSchema,
   BookContext: BookContextSchema,
   PreBattleID: z.union([z.number(), z.null()]).optional(),
-});
+})
 export type FantasticStoryBattleIdValue = z.infer<
   typeof FantasticStoryBattleIdValueSchema
->;
+>

@@ -1,7 +1,7 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const IconNameSchema = z.enum(["MazeText_Empty"]);
-export type IconName = z.infer<typeof IconNameSchema>;
+export const IconNameSchema = z.enum(['MazeText_Empty'])
+export type IconName = z.infer<typeof IconNameSchema>
 
 export const MiniMapIconValueSchema = z.object({
   ID: z.number(),
@@ -17,5 +17,5 @@ export const MiniMapIconValueSchema = z.object({
   ConnectID: z.union([z.number(), z.null()]).optional(),
   IsFollowMapScale: z.union([z.boolean(), z.null()]).optional(),
   IconOrientetionSwitch: z.union([z.boolean(), z.null()]).optional(),
-});
-export type MiniMapIconValue = z.infer<typeof MiniMapIconValueSchema>;
+})
+export type MiniMapIconValue = z.infer<typeof MiniMapIconValueSchema>

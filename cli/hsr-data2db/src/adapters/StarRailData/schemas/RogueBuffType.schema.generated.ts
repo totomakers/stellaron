@@ -1,11 +1,11 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const RogueBuffTypeSubTitleClassSchema = z.object({
   Hash: z.number(),
-});
+})
 export type RogueBuffTypeSubTitleClass = z.infer<
   typeof RogueBuffTypeSubTitleClassSchema
->;
+>
 
 export const RogueBuffTypeValueSchema = z.object({
   RogueBuffType: z.number(),
@@ -14,5 +14,5 @@ export const RogueBuffTypeValueSchema = z.object({
   RogueBuffTypeTitle: RogueBuffTypeSubTitleClassSchema,
   RugueBuffTypeRewardQuestList: z.array(z.number()),
   RogueBuffTypeSubTitle: RogueBuffTypeSubTitleClassSchema,
-});
-export type RogueBuffTypeValue = z.infer<typeof RogueBuffTypeValueSchema>;
+})
+export type RogueBuffTypeValue = z.infer<typeof RogueBuffTypeValueSchema>

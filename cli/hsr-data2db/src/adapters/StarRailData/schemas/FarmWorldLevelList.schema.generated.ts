@@ -1,10 +1,10 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const CocoonSchema = z.object({
   FarmType: z.string(),
   WorldLevelList: z.array(z.number()),
-});
-export type Cocoon = z.infer<typeof CocoonSchema>;
+})
+export type Cocoon = z.infer<typeof CocoonSchema>
 
 export const FarmWorldLevelListSchema = z.object({
   COCOON: CocoonSchema,
@@ -12,5 +12,5 @@ export const FarmWorldLevelListSchema = z.object({
   ELEMENT: CocoonSchema,
   RELIC: CocoonSchema,
   COCOON3: CocoonSchema,
-});
-export type FarmWorldLevelList = z.infer<typeof FarmWorldLevelListSchema>;
+})
+export type FarmWorldLevelList = z.infer<typeof FarmWorldLevelListSchema>

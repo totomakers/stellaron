@@ -1,14 +1,14 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const SimpleSkillDescSchema = z.object({
   Hash: z.number(),
-});
-export type SimpleSkillDesc = z.infer<typeof SimpleSkillDescSchema>;
+})
+export type SimpleSkillDesc = z.infer<typeof SimpleSkillDescSchema>
 
 export const BpNeedSchema = z.object({
   Value: z.number(),
-});
-export type BpNeed = z.infer<typeof BpNeedSchema>;
+})
+export type BpNeed = z.infer<typeof BpNeedSchema>
 
 export const The1Schema = z.object({
   SkillID: z.number(),
@@ -41,12 +41,12 @@ export const The1Schema = z.object({
   StanceDamageType: z.string(),
   AttackType: z.string(),
   SkillEffect: z.string(),
-});
-export type The1 = z.infer<typeof The1Schema>;
+})
+export type The1 = z.infer<typeof The1Schema>
 
 export const SpecialNpcSkillConfigValueSchema = z.object({
-  "1": The1Schema,
-});
+  '1': The1Schema,
+})
 export type SpecialNpcSkillConfigValue = z.infer<
   typeof SpecialNpcSkillConfigValueSchema
->;
+>

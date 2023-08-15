@@ -1,28 +1,28 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const RankSchema = z.enum([
-  "BigBoss",
-  "Elite",
-  "LittleBoss",
-  "Minion",
-  "MinionLv2",
-]);
-export type Rank = z.infer<typeof RankSchema>;
+  'BigBoss',
+  'Elite',
+  'LittleBoss',
+  'Minion',
+  'MinionLv2',
+])
+export type Rank = z.infer<typeof RankSchema>
 
 export const MonsterNameSchema = z.object({
   Hash: z.number(),
-});
-export type MonsterName = z.infer<typeof MonsterNameSchema>;
+})
+export type MonsterName = z.infer<typeof MonsterNameSchema>
 
 export const AttackBaseSchema = z.object({
   Value: z.number(),
-});
-export type AttackBase = z.infer<typeof AttackBaseSchema>;
+})
+export type AttackBase = z.infer<typeof AttackBaseSchema>
 
 export const AiSkillSequenceSchema = z.object({
   MNMACAIHJCE: z.number(),
-});
-export type AiSkillSequence = z.infer<typeof AiSkillSequenceSchema>;
+})
+export type AiSkillSequence = z.infer<typeof AiSkillSequenceSchema>
 
 export const MonsterTemplateConfigValueSchema = z.object({
   MonsterTemplateID: z.number(),
@@ -54,7 +54,7 @@ export const MonsterTemplateConfigValueSchema = z.object({
   TemplateGroupID: z.union([z.number(), z.null()]).optional(),
   AtlasSortID: z.union([z.number(), z.null()]).optional(),
   MonsterCampID: z.union([z.number(), z.null()]).optional(),
-});
+})
 export type MonsterTemplateConfigValue = z.infer<
   typeof MonsterTemplateConfigValueSchema
->;
+>

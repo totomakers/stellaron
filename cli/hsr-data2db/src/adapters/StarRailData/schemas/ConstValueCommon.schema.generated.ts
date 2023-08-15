@@ -1,77 +1,77 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const ArrayValueTypeSchema = z.enum(["INT"]);
-export type ArrayValueType = z.infer<typeof ArrayValueTypeSchema>;
+export const ArrayValueTypeSchema = z.enum(['INT'])
+export type ArrayValueType = z.infer<typeof ArrayValueTypeSchema>
 
-export const PurpleTypeSchema = z.enum(["FLOAT"]);
-export type PurpleType = z.infer<typeof PurpleTypeSchema>;
+export const PurpleTypeSchema = z.enum(['FLOAT'])
+export type PurpleType = z.infer<typeof PurpleTypeSchema>
 
-export const FluffyTypeSchema = z.enum(["STRING"]);
-export type FluffyType = z.infer<typeof FluffyTypeSchema>;
+export const FluffyTypeSchema = z.enum(['STRING'])
+export type FluffyType = z.infer<typeof FluffyTypeSchema>
 
 export const StorySkipCloseValueSchema = z.object({
   Type: z.string(),
   BoolValue: z.boolean(),
-});
-export type StorySkipCloseValue = z.infer<typeof StorySkipCloseValueSchema>;
+})
+export type StorySkipCloseValue = z.infer<typeof StorySkipCloseValueSchema>
 
 export const StorySkipCloseSchema = z.object({
   ConstValueName: z.string(),
   Value: StorySkipCloseValueSchema,
-});
-export type StorySkipClose = z.infer<typeof StorySkipCloseSchema>;
+})
+export type StorySkipClose = z.infer<typeof StorySkipCloseSchema>
 
 export const DefaultNicknameChsValueSchema = z.object({
   Type: FluffyTypeSchema,
   StringValue: z.string(),
-});
+})
 export type DefaultNicknameChsValue = z.infer<
   typeof DefaultNicknameChsValueSchema
->;
+>
 
 export const DefaultNicknameChsSchema = z.object({
   ConstValueName: z.string(),
   Value: DefaultNicknameChsValueSchema,
-});
-export type DefaultNicknameChs = z.infer<typeof DefaultNicknameChsSchema>;
+})
+export type DefaultNicknameChs = z.infer<typeof DefaultNicknameChsSchema>
 
 export const CombatPowerAvatarBaseValueSchema = z.object({
   Type: PurpleTypeSchema,
   FloatValue: z.number(),
-});
+})
 export type CombatPowerAvatarBaseValue = z.infer<
   typeof CombatPowerAvatarBaseValueSchema
->;
+>
 
 export const CombatPowerAvatarBaseSchema = z.object({
   ConstValueName: z.string(),
   Value: CombatPowerAvatarBaseValueSchema,
-});
-export type CombatPowerAvatarBase = z.infer<typeof CombatPowerAvatarBaseSchema>;
+})
+export type CombatPowerAvatarBase = z.infer<typeof CombatPowerAvatarBaseSchema>
 
 export const BpEquipmentIdValueSchema = z.object({
   Type: z.string(),
   ArrayValue: z.array(ValueSchema),
-});
-export type BpEquipmentIdValue = z.infer<typeof BpEquipmentIdValueSchema>;
+})
+export type BpEquipmentIdValue = z.infer<typeof BpEquipmentIdValueSchema>
 
 export const BpEquipmentIdSchema = z.object({
   ConstValueName: z.string(),
   Value: BpEquipmentIdValueSchema,
-});
-export type BpEquipmentId = z.infer<typeof BpEquipmentIdSchema>;
+})
+export type BpEquipmentId = z.infer<typeof BpEquipmentIdSchema>
 
 export const ValueSchema = z.object({
   Type: ArrayValueTypeSchema,
   IntValue: z.number(),
-});
-export type Value = z.infer<typeof ValueSchema>;
+})
+export type Value = z.infer<typeof ValueSchema>
 
 export const ActivityDayTimeOffsetSchema = z.object({
   ConstValueName: z.string(),
   Value: ValueSchema,
-});
-export type ActivityDayTimeOffset = z.infer<typeof ActivityDayTimeOffsetSchema>;
+})
+export type ActivityDayTimeOffset = z.infer<typeof ActivityDayTimeOffsetSchema>
 
 export const ConstValueCommonSchema = z.object({
   Equipment_Exp_Recyle_Ratio: ActivityDayTimeOffsetSchema,
@@ -241,5 +241,5 @@ export const ConstValueCommonSchema = z.object({
   PS_Sub_Pack_SubMission_ID: ActivityDayTimeOffsetSchema,
   Default_ChatBubble: ActivityDayTimeOffsetSchema,
   PlayerExp_Scoin_ConvertRate: ActivityDayTimeOffsetSchema,
-});
-export type ConstValueCommon = z.infer<typeof ConstValueCommonSchema>;
+})
+export type ConstValueCommon = z.infer<typeof ConstValueCommonSchema>

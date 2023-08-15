@@ -1,17 +1,17 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const PageSchema = z.object({
   PageKey: z.string(),
   CurrencyIDList: z.array(z.number()),
   IsDetailButton: z.boolean(),
-});
-export type Page = z.infer<typeof PageSchema>;
+})
+export type Page = z.infer<typeof PageSchema>
 
 export const ActivityPunkLordPageSchema = z.object({
   PageKey: z.string(),
   CurrencyIDList: z.array(z.number()),
-});
-export type ActivityPunkLordPage = z.infer<typeof ActivityPunkLordPageSchema>;
+})
+export type ActivityPunkLordPage = z.infer<typeof ActivityPunkLordPageSchema>
 
 export const ResourceOverallConfigSchema = z.object({
   InventoryPage: ActivityPunkLordPageSchema,
@@ -85,5 +85,5 @@ export const ResourceOverallConfigSchema = z.object({
   HandBookRogueGuide02: ActivityPunkLordPageSchema,
   HandBookGuide: ActivityPunkLordPageSchema,
   MuseumPage: ActivityPunkLordPageSchema,
-});
-export type ResourceOverallConfig = z.infer<typeof ResourceOverallConfigSchema>;
+})
+export type ResourceOverallConfig = z.infer<typeof ResourceOverallConfigSchema>

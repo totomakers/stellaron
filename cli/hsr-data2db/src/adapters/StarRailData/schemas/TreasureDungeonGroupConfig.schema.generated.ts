@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const NameSchema = z.object({
   Hash: z.number(),
-});
-export type Name = z.infer<typeof NameSchema>;
+})
+export type Name = z.infer<typeof NameSchema>
 
 export const TreasureDungeonGroupConfigValueSchema = z.object({
   GroupID: z.number(),
@@ -20,7 +20,7 @@ export const TreasureDungeonGroupConfigValueSchema = z.object({
   DungeonIDList: z.array(z.number()),
   Name: NameSchema,
   ImgPath: z.string(),
-});
+})
 export type TreasureDungeonGroupConfigValue = z.infer<
   typeof TreasureDungeonGroupConfigValueSchema
->;
+>

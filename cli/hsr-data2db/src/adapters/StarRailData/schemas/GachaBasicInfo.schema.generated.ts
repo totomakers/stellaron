@@ -1,30 +1,30 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const GachaBarSchema = z.enum([
-  "CharacterGachaPage",
-  "LightconeGachaPage",
-  "StandardGachaPage",
-]);
-export type GachaBar = z.infer<typeof GachaBarSchema>;
+  'CharacterGachaPage',
+  'LightconeGachaPage',
+  'StandardGachaPage',
+])
+export type GachaBar = z.infer<typeof GachaBarSchema>
 
 export const GachaTypeSchema = z.enum([
-  "AvatarUp",
-  "Newbie",
-  "Normal",
-  "WeaponUp",
-]);
-export type GachaType = z.infer<typeof GachaTypeSchema>;
+  'AvatarUp',
+  'Newbie',
+  'Normal',
+  'WeaponUp',
+])
+export type GachaType = z.infer<typeof GachaTypeSchema>
 
 export const PoolDescSchema = z.object({
   Hash: z.number(),
-});
-export type PoolDesc = z.infer<typeof PoolDescSchema>;
+})
+export type PoolDesc = z.infer<typeof PoolDescSchema>
 
 export const BuyPosSchema = z.object({
   ShopID: z.number(),
   ShopGoodID: z.number(),
-});
-export type BuyPos = z.infer<typeof BuyPosSchema>;
+})
+export type BuyPos = z.infer<typeof BuyPosSchema>
 
 export const GachaBasicInfoValueSchema = z.object({
   GachaID: z.number(),
@@ -44,5 +44,5 @@ export const GachaBasicInfoValueSchema = z.object({
   BuyPos: BuyPosSchema,
   TypeTitle: PoolDescSchema,
   UpPropability: z.union([z.number(), z.null()]).optional(),
-});
-export type GachaBasicInfoValue = z.infer<typeof GachaBasicInfoValueSchema>;
+})
+export type GachaBasicInfoValue = z.infer<typeof GachaBasicInfoValueSchema>

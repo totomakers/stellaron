@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const BattlePassConfigValueSchema = z.object({
   ID: z.number(),
@@ -13,5 +13,5 @@ export const BattlePassConfigValueSchema = z.object({
   RewardID: z.number(),
   RewardShow68: z.array(z.number()),
   RewardShow128: z.array(z.number()),
-});
-export type BattlePassConfigValue = z.infer<typeof BattlePassConfigValueSchema>;
+})
+export type BattlePassConfigValue = z.infer<typeof BattlePassConfigValueSchema>

@@ -1,22 +1,22 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const DefaultMouseTypeSchema = z.enum([
-  "",
-  "LeftButton",
-  "NegativeScrollWheel",
-  "NegativeX",
-  "NegativeY",
-  "PositiveScrollWheel",
-  "PositiveX",
-  "PositiveY",
-  "RightButton",
-]);
-export type DefaultMouseType = z.infer<typeof DefaultMouseTypeSchema>;
+  '',
+  'LeftButton',
+  'NegativeScrollWheel',
+  'NegativeX',
+  'NegativeY',
+  'PositiveScrollWheel',
+  'PositiveX',
+  'PositiveY',
+  'RightButton',
+])
+export type DefaultMouseType = z.infer<typeof DefaultMouseTypeSchema>
 
 export const ActionTextmapIdSchema = z.object({
   Hash: z.number(),
-});
-export type ActionTextmapId = z.infer<typeof ActionTextmapIdSchema>;
+})
+export type ActionTextmapId = z.infer<typeof ActionTextmapIdSchema>
 
 export const InControlActionMapValueSchema = z.object({
   actionName: z.string(),
@@ -26,7 +26,7 @@ export const InControlActionMapValueSchema = z.object({
   defaultMouseType: DefaultMouseTypeSchema,
   defaultInControlTypes: z.array(z.string()),
   FuncGotoIDList: z.array(z.number()),
-});
+})
 export type InControlActionMapValue = z.infer<
   typeof InControlActionMapValueSchema
->;
+>

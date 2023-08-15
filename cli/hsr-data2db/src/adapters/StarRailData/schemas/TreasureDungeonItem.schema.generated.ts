@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const DescSchema = z.object({
   Hash: z.number(),
-});
-export type Desc = z.infer<typeof DescSchema>;
+})
+export type Desc = z.infer<typeof DescSchema>
 
 export const TreasureDungeonItemValueSchema = z.object({
   ItemID: z.number(),
@@ -15,7 +15,7 @@ export const TreasureDungeonItemValueSchema = z.object({
   IconPath: z.string(),
   IconPath2D: z.string(),
   AudioEventName: z.string(),
-});
+})
 export type TreasureDungeonItemValue = z.infer<
   typeof TreasureDungeonItemValueSchema
->;
+>

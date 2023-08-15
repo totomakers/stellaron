@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const NameSchema = z.object({
   Hash: z.number(),
-});
-export type Name = z.infer<typeof NameSchema>;
+})
+export type Name = z.infer<typeof NameSchema>
 
 export const FantasticStoryChapterValueSchema = z.object({
   ChapterID: z.number(),
@@ -12,7 +12,7 @@ export const FantasticStoryChapterValueSchema = z.object({
   FigurePath: z.string(),
   MissionID: z.number(),
   ActivityModuleID: z.number(),
-});
+})
 export type FantasticStoryChapterValue = z.infer<
   typeof FantasticStoryChapterValueSchema
->;
+>

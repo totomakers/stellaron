@@ -1,29 +1,29 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const ItemTypeSchema = z.enum(["Relic"]);
-export type ItemType = z.infer<typeof ItemTypeSchema>;
+export const ItemTypeSchema = z.enum(['Relic'])
+export type ItemType = z.infer<typeof ItemTypeSchema>
 
 export const RaritySchema = z.enum([
-  "NotNormal",
-  "Rare",
-  "SuperRare",
-  "VeryRare",
-]);
-export type Rarity = z.infer<typeof RaritySchema>;
+  'NotNormal',
+  'Rare',
+  'SuperRare',
+  'VeryRare',
+])
+export type Rarity = z.infer<typeof RaritySchema>
 
-export const SellTypeSchema = z.enum(["Sell"]);
-export type SellType = z.infer<typeof SellTypeSchema>;
+export const SellTypeSchema = z.enum(['Sell'])
+export type SellType = z.infer<typeof SellTypeSchema>
 
 export const ReturnItemIdListSchema = z.object({
   ItemID: z.number(),
   ItemNum: z.number(),
-});
-export type ReturnItemIdList = z.infer<typeof ReturnItemIdListSchema>;
+})
+export type ReturnItemIdList = z.infer<typeof ReturnItemIdListSchema>
 
 export const ItemSchema = z.object({
   Hash: z.number(),
-});
-export type Item = z.infer<typeof ItemSchema>;
+})
+export type Item = z.infer<typeof ItemSchema>
 
 export const ItemConfigRelicValueSchema = z.object({
   ID: z.number(),
@@ -44,5 +44,5 @@ export const ItemConfigRelicValueSchema = z.object({
   IsSellable: z.boolean(),
   ReturnItemIDList: z.array(ReturnItemIdListSchema),
   SellType: SellTypeSchema,
-});
-export type ItemConfigRelicValue = z.infer<typeof ItemConfigRelicValueSchema>;
+})
+export type ItemConfigRelicValue = z.infer<typeof ItemConfigRelicValueSchema>

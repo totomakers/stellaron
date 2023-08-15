@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const TreasureDungeonFloorValueSchema = z.object({
   DungeonID: z.number(),
@@ -9,7 +9,7 @@ export const TreasureDungeonFloorValueSchema = z.object({
   HardLevelList: z.array(z.number()),
   EliteGroup2: z.number(),
   AddExploreValue: z.union([z.number(), z.null()]).optional(),
-});
+})
 export type TreasureDungeonFloorValue = z.infer<
   typeof TreasureDungeonFloorValueSchema
->;
+>

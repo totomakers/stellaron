@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const RogueRoomValueSchema = z.object({
   RogueRoomID: z.number(),
@@ -7,5 +7,5 @@ export const RogueRoomValueSchema = z.object({
   GroupID: z.number(),
   GroupWithContent: z.record(z.string(), z.number()),
   RogueRoomSections: z.array(z.number()),
-});
-export type RogueRoomValue = z.infer<typeof RogueRoomValueSchema>;
+})
+export type RogueRoomValue = z.infer<typeof RogueRoomValueSchema>

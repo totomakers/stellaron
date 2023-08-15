@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const EffectDesc1Schema = z.object({
   Hash: z.number(),
-});
-export type EffectDesc1 = z.infer<typeof EffectDesc1Schema>;
+})
+export type EffectDesc1 = z.infer<typeof EffectDesc1Schema>
 
 export const The1Schema = z.object({
   AeonID: z.number(),
@@ -23,10 +23,10 @@ export const The1Schema = z.object({
   BattleEventBuffGroup: z.number(),
   BattleEventEnhanceBuffGroup: z.number(),
   UnlockID: z.union([z.number(), z.null()]).optional(),
-});
-export type The1 = z.infer<typeof The1Schema>;
+})
+export type The1 = z.infer<typeof The1Schema>
 
 export const RogueAeonValueSchema = z.object({
-  "1": The1Schema,
-});
-export type RogueAeonValue = z.infer<typeof RogueAeonValueSchema>;
+  '1': The1Schema,
+})
+export type RogueAeonValue = z.infer<typeof RogueAeonValueSchema>

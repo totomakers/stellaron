@@ -1,19 +1,19 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const FormulaTypeSchema = z.enum(["Normal", "SelectedRelic", "Sepcial"]);
-export type FormulaType = z.infer<typeof FormulaTypeSchema>;
+export const FormulaTypeSchema = z.enum(['Normal', 'SelectedRelic', 'Sepcial'])
+export type FormulaType = z.infer<typeof FormulaTypeSchema>
 
-export const FuncTypeSchema = z.enum(["Compose", "Replace"]);
-export type FuncType = z.infer<typeof FuncTypeSchema>;
+export const FuncTypeSchema = z.enum(['Compose', 'Replace'])
+export type FuncType = z.infer<typeof FuncTypeSchema>
 
-export const LimitTypeSchema = z.enum(["NotLimit", "Weekly"]);
-export type LimitType = z.infer<typeof LimitTypeSchema>;
+export const LimitTypeSchema = z.enum(['NotLimit', 'Weekly'])
+export type LimitType = z.infer<typeof LimitTypeSchema>
 
 export const MaterialCostSchema = z.object({
   ItemID: z.number(),
   ItemNum: z.number(),
-});
-export type MaterialCost = z.infer<typeof MaterialCostSchema>;
+})
+export type MaterialCost = z.infer<typeof MaterialCostSchema>
 
 export const ItemComposeConfigValueSchema = z.object({
   ID: z.number(),
@@ -34,7 +34,7 @@ export const ItemComposeConfigValueSchema = z.object({
   FormulaRequire: z.union([z.number(), z.null()]).optional(),
   SpecialMaterialCostNumber: z.union([z.number(), z.null()]).optional(),
   LimitValue: z.union([z.number(), z.null()]).optional(),
-});
+})
 export type ItemComposeConfigValue = z.infer<
   typeof ItemComposeConfigValueSchema
->;
+>

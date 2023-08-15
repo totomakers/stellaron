@@ -1,13 +1,13 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const BlackSchema = z.enum(["Full", "NoPost", "NoPre", "NoPrePost"]);
-export type Black = z.infer<typeof BlackSchema>;
+export const BlackSchema = z.enum(['Full', 'NoPost', 'NoPre', 'NoPrePost'])
+export type Black = z.infer<typeof BlackSchema>
 
 export const PerformanceCharacterSchema = z.enum([
-  "",
-  "NPC_Avatar_Lad_DanHeng_00",
-]);
-export type PerformanceCharacter = z.infer<typeof PerformanceCharacterSchema>;
+  '',
+  'NPC_Avatar_Lad_DanHeng_00',
+])
+export type PerformanceCharacter = z.infer<typeof PerformanceCharacterSchema>
 
 export const PerformanceDValueSchema = z.object({
   PerformanceID: z.number(),
@@ -20,5 +20,5 @@ export const PerformanceDValueSchema = z.object({
   FloorID: z.number(),
   IsChangePlayer: z.union([z.boolean(), z.null()]).optional(),
   EndWithCrack: z.union([z.boolean(), z.null()]).optional(),
-});
-export type PerformanceDValue = z.infer<typeof PerformanceDValueSchema>;
+})
+export type PerformanceDValue = z.infer<typeof PerformanceDValueSchema>

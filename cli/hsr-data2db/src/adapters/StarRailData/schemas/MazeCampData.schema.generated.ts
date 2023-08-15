@@ -1,10 +1,10 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const MazePlayerAllySchema = z.object({
   CampID: z.string(),
   HostileCampList: z.array(z.number()),
-});
-export type MazePlayerAlly = z.infer<typeof MazePlayerAllySchema>;
+})
+export type MazePlayerAlly = z.infer<typeof MazePlayerAllySchema>
 
 export const MazeCampDataSchema = z.object({
   Player: MazePlayerAllySchema,
@@ -12,5 +12,5 @@ export const MazeCampDataSchema = z.object({
   NpcMonster: MazePlayerAllySchema,
   Prop: MazePlayerAllySchema,
   Neutral: MazePlayerAllySchema,
-});
-export type MazeCampData = z.infer<typeof MazeCampDataSchema>;
+})
+export type MazeCampData = z.infer<typeof MazeCampDataSchema>

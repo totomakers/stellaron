@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const PlayerNameSchema = z.object({
   Hash: z.number(),
-});
-export type PlayerName = z.infer<typeof PlayerNameSchema>;
+})
+export type PlayerName = z.infer<typeof PlayerNameSchema>
 
 export const AdventurePlayerValueSchema = z.object({
   ID: z.number(),
@@ -13,5 +13,5 @@ export const AdventurePlayerValueSchema = z.object({
   PlayerJsonPath: z.string(),
   DefaultAvatarHeadIconPath: z.string(),
   MazeSkillIdList: z.array(z.number()),
-});
-export type AdventurePlayerValue = z.infer<typeof AdventurePlayerValueSchema>;
+})
+export type AdventurePlayerValue = z.infer<typeof AdventurePlayerValueSchema>

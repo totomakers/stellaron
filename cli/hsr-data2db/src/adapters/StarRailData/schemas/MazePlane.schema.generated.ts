@@ -1,20 +1,20 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const PlaneTypeSchema = z.enum([
-  "Challenge",
-  "Maze",
-  "Raid",
-  "Rogue",
-  "Town",
-  "Train",
-  "TrialActivity",
-]);
-export type PlaneType = z.infer<typeof PlaneTypeSchema>;
+  'Challenge',
+  'Maze',
+  'Raid',
+  'Rogue',
+  'Town',
+  'Train',
+  'TrialActivity',
+])
+export type PlaneType = z.infer<typeof PlaneTypeSchema>
 
 export const PlaneNameSchema = z.object({
   Hash: z.number(),
-});
-export type PlaneName = z.infer<typeof PlaneNameSchema>;
+})
+export type PlaneName = z.infer<typeof PlaneNameSchema>
 
 export const MazePlaneValueSchema = z.object({
   PlaneID: z.number(),
@@ -25,5 +25,5 @@ export const MazePlaneValueSchema = z.object({
   PlaneName: PlaneNameSchema,
   StartFloorID: z.number(),
   FloorIDList: z.array(z.number()),
-});
-export type MazePlaneValue = z.infer<typeof MazePlaneValueSchema>;
+})
+export type MazePlaneValue = z.infer<typeof MazePlaneValueSchema>

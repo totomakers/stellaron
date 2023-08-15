@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const BaseTypeSchema = z.object({
   Hash: z.number(),
-});
-export type BaseType = z.infer<typeof BaseTypeSchema>;
+})
+export type BaseType = z.infer<typeof BaseTypeSchema>
 
 export const KnightSchema = z.object({
   ID: z.string(),
@@ -17,8 +17,8 @@ export const KnightSchema = z.object({
   BaseTypeText: BaseTypeSchema,
   BaseTypeDesc: BaseTypeSchema,
   FirstWordText: z.string(),
-});
-export type Knight = z.infer<typeof KnightSchema>;
+})
+export type Knight = z.infer<typeof KnightSchema>
 
 export const AvatarBaseTypeSchema = z.object({
   Warrior: KnightSchema,
@@ -29,5 +29,5 @@ export const AvatarBaseTypeSchema = z.object({
   Knight: KnightSchema,
   Priest: KnightSchema,
   Unknown: KnightSchema,
-});
-export type AvatarBaseType = z.infer<typeof AvatarBaseTypeSchema>;
+})
+export type AvatarBaseType = z.infer<typeof AvatarBaseTypeSchema>

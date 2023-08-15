@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const HudUiInfoTemplateValueSchema = z.object({
   ID: z.number(),
@@ -7,7 +7,7 @@ export const HudUiInfoTemplateValueSchema = z.object({
   LockGotoTypeList: z.array(z.string()),
   LockInputActionName: z.array(z.string()),
   ActionOperationSetID: z.number(),
-});
+})
 export type HudUiInfoTemplateValue = z.infer<
   typeof HudUiInfoTemplateValueSchema
->;
+>

@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const GmAccountConfigSchema = z.object({});
-export type GmAccountConfig = z.infer<typeof GmAccountConfigSchema>;
+export const GmAccountConfigSchema = z.object({})
+export type GmAccountConfig = z.infer<typeof GmAccountConfigSchema>

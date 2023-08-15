@@ -1,48 +1,48 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const ItemMainTypeSchema = z.enum([
-  "Display",
-  "Material",
-  "Mission",
-  "Usable",
-  "Virtual",
-]);
-export type ItemMainType = z.infer<typeof ItemMainTypeSchema>;
+  'Display',
+  'Material',
+  'Mission',
+  'Usable',
+  'Virtual',
+])
+export type ItemMainType = z.infer<typeof ItemMainTypeSchema>
 
 export const TypeSchema = z.enum([
-  "Book",
-  "ChatBubble",
-  "Food",
-  "ForceOpitonalGift",
-  "Formula",
-  "Gift",
-  "Material",
-  "Mission",
-  "MuseumExhibit",
-  "MuseumStuff",
-  "RelicRarityShowOnly",
-  "RelicSetShowOnly",
-  "Treasure",
-  "Virtual",
-]);
-export type Type = z.infer<typeof TypeSchema>;
+  'Book',
+  'ChatBubble',
+  'Food',
+  'ForceOpitonalGift',
+  'Formula',
+  'Gift',
+  'Material',
+  'Mission',
+  'MuseumExhibit',
+  'MuseumStuff',
+  'RelicRarityShowOnly',
+  'RelicSetShowOnly',
+  'Treasure',
+  'Virtual',
+])
+export type Type = z.infer<typeof TypeSchema>
 
 export const RaritySchema = z.enum([
-  "Normal",
-  "NotNormal",
-  "Rare",
-  "SuperRare",
-  "VeryRare",
-]);
-export type Rarity = z.infer<typeof RaritySchema>;
+  'Normal',
+  'NotNormal',
+  'Rare',
+  'SuperRare',
+  'VeryRare',
+])
+export type Rarity = z.infer<typeof RaritySchema>
 
-export const SellTypeSchema = z.enum(["Destroy"]);
-export type SellType = z.infer<typeof SellTypeSchema>;
+export const SellTypeSchema = z.enum(['Destroy'])
+export type SellType = z.infer<typeof SellTypeSchema>
 
 export const ItemSchema = z.object({
   Hash: z.number(),
-});
-export type Item = z.infer<typeof ItemSchema>;
+})
+export type Item = z.infer<typeof ItemSchema>
 
 export const ItemConfigValueSchema = z.object({
   ID: z.number(),
@@ -68,5 +68,5 @@ export const ItemConfigValueSchema = z.object({
   SellType: z.union([SellTypeSchema, z.null()]).optional(),
   IsShowRedDot: z.union([z.boolean(), z.null()]).optional(),
   IsAutoUse: z.union([z.boolean(), z.null()]).optional(),
-});
-export type ItemConfigValue = z.infer<typeof ItemConfigValueSchema>;
+})
+export type ItemConfigValue = z.infer<typeof ItemConfigValueSchema>

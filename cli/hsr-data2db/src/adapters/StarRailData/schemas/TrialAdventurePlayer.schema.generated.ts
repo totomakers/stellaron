@@ -1,10 +1,10 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const SkillTreeTemplateSchema = z.enum(["TYPE_INIT", "TYPE_MAX"]);
-export type SkillTreeTemplate = z.infer<typeof SkillTreeTemplateSchema>;
+export const SkillTreeTemplateSchema = z.enum(['TYPE_INIT', 'TYPE_MAX'])
+export type SkillTreeTemplate = z.infer<typeof SkillTreeTemplateSchema>
 
-export const TypeSchema = z.enum(["TYPE_MISSION", "TYPE_TRIAL"]);
-export type Type = z.infer<typeof TypeSchema>;
+export const TypeSchema = z.enum(['TYPE_MISSION', 'TYPE_TRIAL'])
+export type Type = z.infer<typeof TypeSchema>
 
 export const TrialAdventurePlayerValueSchema = z.object({
   TrialPlayerID: z.number(),
@@ -21,7 +21,7 @@ export const TrialAdventurePlayerValueSchema = z.object({
   IsProtected: z.union([z.boolean(), z.null()]).optional(),
   Promotion: z.union([z.number(), z.null()]).optional(),
   EquipmentPromotion: z.union([z.number(), z.null()]).optional(),
-});
+})
 export type TrialAdventurePlayerValue = z.infer<
   typeof TrialAdventurePlayerValueSchema
->;
+>

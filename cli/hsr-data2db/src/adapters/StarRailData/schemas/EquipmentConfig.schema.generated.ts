@@ -1,27 +1,27 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const AvatarBaseTypeSchema = z.enum([
-  "Knight",
-  "Mage",
-  "Priest",
-  "Rogue",
-  "Shaman",
-  "Warlock",
-  "Warrior",
-]);
-export type AvatarBaseType = z.infer<typeof AvatarBaseTypeSchema>;
+  'Knight',
+  'Mage',
+  'Priest',
+  'Rogue',
+  'Shaman',
+  'Warlock',
+  'Warrior',
+])
+export type AvatarBaseType = z.infer<typeof AvatarBaseTypeSchema>
 
 export const RaritySchema = z.enum([
-  "CombatPowerLightconeRarity3",
-  "CombatPowerLightconeRarity4",
-  "CombatPowerLightconeRarity5",
-]);
-export type Rarity = z.infer<typeof RaritySchema>;
+  'CombatPowerLightconeRarity3',
+  'CombatPowerLightconeRarity4',
+  'CombatPowerLightconeRarity5',
+])
+export type Rarity = z.infer<typeof RaritySchema>
 
 export const EquipmentSchema = z.object({
   Hash: z.number(),
-});
-export type Equipment = z.infer<typeof EquipmentSchema>;
+})
+export type Equipment = z.infer<typeof EquipmentSchema>
 
 export const EquipmentConfigValueSchema = z.object({
   EquipmentID: z.number(),
@@ -43,5 +43,5 @@ export const EquipmentConfigValueSchema = z.object({
   AvatarDetailOffset: z.array(z.number()),
   BattleDialogOffset: z.array(z.number()),
   GachaResultOffset: z.array(z.number()),
-});
-export type EquipmentConfigValue = z.infer<typeof EquipmentConfigValueSchema>;
+})
+export type EquipmentConfigValue = z.infer<typeof EquipmentConfigValueSchema>

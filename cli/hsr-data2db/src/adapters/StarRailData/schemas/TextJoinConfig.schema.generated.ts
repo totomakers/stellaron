@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const TextJoinConfigValueSchema = z.object({
   TextJoinID: z.number(),
@@ -6,5 +6,5 @@ export const TextJoinConfigValueSchema = z.object({
   TextJoinItemList: z.array(z.number()),
   IsOverride: z.union([z.boolean(), z.null()]).optional(),
   Type: z.union([z.null(), z.string()]).optional(),
-});
-export type TextJoinConfigValue = z.infer<typeof TextJoinConfigValueSchema>;
+})
+export type TextJoinConfigValue = z.infer<typeof TextJoinConfigValueSchema>

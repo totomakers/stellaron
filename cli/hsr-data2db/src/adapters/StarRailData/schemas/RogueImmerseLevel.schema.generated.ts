@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const BgDescSchema = z.object({
   Hash: z.number(),
-});
-export type BgDesc = z.infer<typeof BgDescSchema>;
+})
+export type BgDesc = z.infer<typeof BgDescSchema>
 
 export const RogueImmerseLevelValueSchema = z.object({
   Level: z.number(),
@@ -15,7 +15,7 @@ export const RogueImmerseLevelValueSchema = z.object({
   EffectDesc2: BgDescSchema,
   LevelUpTips1: BgDescSchema,
   LevelUpTips2: BgDescSchema,
-});
+})
 export type RogueImmerseLevelValue = z.infer<
   typeof RogueImmerseLevelValueSchema
->;
+>

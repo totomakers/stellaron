@@ -1,9 +1,9 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 export const SetNameSchema = z.object({
   Hash: z.number(),
-});
-export type SetName = z.infer<typeof SetNameSchema>;
+})
+export type SetName = z.infer<typeof SetNameSchema>
 
 export const RelicSetConfigValueSchema = z.object({
   SetID: z.number(),
@@ -13,5 +13,5 @@ export const RelicSetConfigValueSchema = z.object({
   SetName: SetNameSchema,
   Release: z.union([z.boolean(), z.null()]).optional(),
   IsPlanarSuit: z.union([z.boolean(), z.null()]).optional(),
-});
-export type RelicSetConfigValue = z.infer<typeof RelicSetConfigValueSchema>;
+})
+export type RelicSetConfigValue = z.infer<typeof RelicSetConfigValueSchema>

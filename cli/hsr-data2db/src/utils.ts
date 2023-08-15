@@ -5,6 +5,8 @@ import path from 'node:path'
 export const writeTsFile = async (dest: string, input: string) => {
   const formatted = await prettier.format(input, {
     parser: 'typescript',
+    semi: false,
+    singleQuote: true,
   })
 
   fs.writeFileSync(path.resolve(dest), formatted, {

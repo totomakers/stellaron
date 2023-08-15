@@ -1,24 +1,24 @@
-import * as z from "zod";
+import * as z from 'zod'
 
-export const ConsumeTagSchema = z.enum(["BP", "HP", "SP"]);
-export type ConsumeTag = z.infer<typeof ConsumeTagSchema>;
+export const ConsumeTagSchema = z.enum(['BP', 'HP', 'SP'])
+export type ConsumeTag = z.infer<typeof ConsumeTagSchema>
 
 export const UseEffectSchema = z.enum([
-  "AvatarItemIcon_Eff_AtkUp",
-  "AvatarItemIcon_Eff_Common",
-  "AvatarItemIcon_Eff_DefUp",
-  "AvatarItemIcon_Eff_Heal",
-  "AvatarItemIcon_Eff_Hurt",
-  "AvatarItemIcon_Eff_MpGet",
-  "AvatarItemIcon_Eff_SkillPoints",
-]);
-export type UseEffect = z.infer<typeof UseEffectSchema>;
+  'AvatarItemIcon_Eff_AtkUp',
+  'AvatarItemIcon_Eff_Common',
+  'AvatarItemIcon_Eff_DefUp',
+  'AvatarItemIcon_Eff_Heal',
+  'AvatarItemIcon_Eff_Hurt',
+  'AvatarItemIcon_Eff_MpGet',
+  'AvatarItemIcon_Eff_SkillPoints',
+])
+export type UseEffect = z.infer<typeof UseEffectSchema>
 
-export const UseSubTypeSchema = z.enum(["Avatar", "External"]);
-export type UseSubType = z.infer<typeof UseSubTypeSchema>;
+export const UseSubTypeSchema = z.enum(['Avatar', 'External'])
+export type UseSubType = z.infer<typeof UseSubTypeSchema>
 
-export const UseTargetTypeSchema = z.enum(["Alive", "Dead"]);
-export type UseTargetType = z.infer<typeof UseTargetTypeSchema>;
+export const UseTargetTypeSchema = z.enum(['Alive', 'Dead'])
+export type UseTargetType = z.infer<typeof UseTargetTypeSchema>
 
 export const ItemUseBuffDataValueSchema = z.object({
   UseDataID: z.number(),
@@ -40,5 +40,5 @@ export const ItemUseBuffDataValueSchema = z.object({
   MazeBuffID2: z.union([z.number(), z.null()]).optional(),
   PreviewSkillPoint: z.union([z.number(), z.null()]).optional(),
   PreviewPowerPercent: z.union([z.number(), z.null()]).optional(),
-});
-export type ItemUseBuffDataValue = z.infer<typeof ItemUseBuffDataValueSchema>;
+})
+export type ItemUseBuffDataValue = z.infer<typeof ItemUseBuffDataValueSchema>
